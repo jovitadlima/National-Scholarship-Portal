@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { STATES } from './STATES';
 
 @Component({
   selector: 'app-student-register',
@@ -11,5 +12,15 @@ export class StudentRegisterComponent implements OnInit {
 
   model!: NgbDateStruct;
 
+  states: any = STATES;
+  districts: any[] = [];
+
   ngOnInit(): void {}
+
+  changeDistrict(stateEvent: any) {
+    let selectedState = stateEvent.target.value;
+    this.districts = this.states.find(
+      (st: any) => st.state == selectedState
+    ).districts;
+  }
 }
