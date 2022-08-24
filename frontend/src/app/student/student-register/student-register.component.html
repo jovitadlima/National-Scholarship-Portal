@@ -1,0 +1,174 @@
+<div class="container py-5">
+  <div class="card">
+    <h4 class="card-header text-center">Student Registration Form</h4>
+    <div class="card-body px-4">
+      <form class="mt-2">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label" for="domicile">State of Domicile</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select Domicile</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="domicile">District</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select District</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="domicile">Gender</label>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select Gender</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="name" class="form-label">Name (As in Marksheet)</label>
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="name"
+              required
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              id="email"
+              required
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mobile" class="form-label">Mobile</label>
+            <input
+              type="text"
+              name="mobile"
+              class="form-control"
+              id="mobile"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="institute-code" class="form-label"
+              >Institute Code</label
+            >
+            <input
+              type="text"
+              name="institute-code"
+              class="form-control"
+              id="institute-code"
+              required
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="dob" class="form-label">Date of Birth</label>
+            <div class="input-group">
+              <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dob"
+                [(ngModel)]="model"
+                ngbDatepicker
+                #d="ngbDatepicker"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                (click)="d.toggle()"
+                type="button"
+              >
+                <i class="bi bi-calendar-fill"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="aadhar" class="form-label">Aadhar Number</label>
+            <input
+              type="text"
+              name="aadhar"
+              class="form-control"
+              id="aadhar"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="ifsc-code" class="form-label">Bank IFSC Code</label>
+            <input
+              type="text"
+              name="ifsc-code"
+              class="form-control"
+              id="ifsc-code"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="account-number" class="form-label"
+              >Bank Account Number</label
+            >
+            <input
+              type="text"
+              name="account-number"
+              class="form-control"
+              id="account-number"
+              required
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="bank-name" class="form-label">Bank Name</label>
+            <input
+              type="text"
+              name="bank-name"
+              class="form-control"
+              id="bank-name"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              id="password"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="password2" class="form-label">Confirm Password</label>
+            <input
+              type="password"
+              name="password2"
+              class="form-control"
+              id="password2"
+              required
+            />
+          </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button type="submit" class="btn btn-dark">Submit</button>
+          <button type="submit" class="btn btn-outline-secondary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

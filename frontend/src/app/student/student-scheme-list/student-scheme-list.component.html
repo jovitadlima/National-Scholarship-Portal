@@ -1,0 +1,52 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <h5 class="card-header text-center">Featured</h5>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="#">My Profile</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="#">Apply for Scholarchip</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" href="#">Check Status</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <h5 class="card-header">Scholarships</h5>
+        <div class="card-body p-4">
+          <ngb-accordion
+            #acc="ngbAccordion"
+            [closeOthers]="true"
+            activeIds="ngb-panel-0"
+          >
+            <ngb-panel
+              *ngFor="let scheme of schemes"
+              title="{{ scheme.Name }} | {{ scheme.id }}"
+            >
+              <ng-template ngbPanelContent>
+                {{ scheme.Description }}
+                <div class="text-center">
+                  <button
+                    class="btn btn-primary mt-3 mb-2 btn-lg"
+                    [ngClass]="scheme.applied ? 'disabled' : ''"
+                  >
+                    {{ scheme.applied ? "Applied" : "Apply" }}
+                  </button>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

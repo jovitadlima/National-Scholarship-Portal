@@ -1,0 +1,213 @@
+Frontend:
+
+Components:
+student -> register, login, dashboard, profile, list of schemes, scheme details, guidelines, scholarship application form, success page
+institute -> register request form, login, dashboard, view student applications, view student applications details (for approval)
+officer -> dashboard, application forms, application forms details (approve or reject)
+ministry (admin priviledges) -> application by institute, application by students, application by institute details, application by students detail, add scholarships crud? (not present in pdf doc)
+shared -> navbar, landing page
+
+Services:
+student service, institute service, officer service, ministry service, auth service, scholarship service
+
+
+Backend: 
+
+Database -> Student, Intitute, officer, ministry, Authentication, Uploaded documents, Schemes, ScholarshipApplication
+
+
+Student:
+details
+
+Uploaded documents
+document
+
+
+Institute:
+details
+approved by officer: true/ false
+approved by misistry: true/ false
+
+oficer:
+email
+password
+
+ministry:
+details
+
+scheme:
+name
+id
+
+ScholarshipApplication:
+details
+student documents
+Approved by institute: true/ false
+approved by officer: true/ false
+approved by ministry: true/ false
+
+
+Api endpoints -> 
+
+/student/
+/institute/
+/officer/
+/ministry/
+
+
+
+
+
+
+
+// //// -- LEVEL 1
+// //// -- Schemas, Tables and References
+
+
+Table student {
+  student_id int [pk]
+  student_name varchar
+  date_of_birth date
+  gender varchar
+  email varchar
+  institute_code varchar
+  phone bigint
+  state_of_domicile varchar
+  district varchar
+  aadhar_number bigint 
+  bank_ifsc_code varchar
+  bank_account_no varchar
+  bank_name varchar
+}
+
+Table Auth {
+  id int 
+  email varchar
+  password varchar
+  role Role
+}
+
+Ref: student.student_id > Auth.id
+Ref: institute.id > Auth.id
+Ref: nodal_officer.id > Auth.id
+Ref: ministry.id > Auth.id
+
+// Ref: ecommerce.products.merchant_id > ecommerce.merchants.id // many-to-one
+// Ref: ecommerce.product_tags.id <> ecommerce.products.id // many-to-many
+
+enum Role {
+  student
+  institute
+  officer
+  ministry
+}
+
+Table institute {
+  id int
+  category varchar
+  institute_code varchar
+  institute_name varchar
+  state varchar
+  district varchar
+  dise_code varchar
+  location varchar
+  institute_type varchar
+  affiliated_university_state varchar
+  affiliated_university_name varchar
+  year_of_addmission date
+  address_line_1 varchar
+  address_line_2 varchar
+  address_city varchar
+  address_state varchar
+  address_district varchar
+  address_pincode int
+  principal_name varchar
+  mobile_no bigint
+  telephone varchar
+  approved_by_officer boolean
+  approved_by_ministry boolean
+}
+
+Table student_documents {
+  doc_id int [pk]
+  doc_name varchar
+  doc_url varchar
+  application_id int
+}
+
+Ref: scholarship_application.application_id > student_documents.application_id
+Ref: institute.id > institute_documents.institute_id
+
+Table institute_documents {
+  doc_id int [pk]
+  doc_name varchar
+  doc_url varchar
+  institute_id int
+}
+
+Table scholarship_application {
+  application_id int [pk]
+  aadhar_number varchar
+  religion varchar
+  community varchar
+  father_name varchar
+  mother_name varchar
+  annual_income varchar
+  institute_name varchar
+  present_course varchar
+  present_course_year date
+  mode_of_study varchar
+  class_start_date date
+  university_or_board_name varchar
+  previous_course varchar
+  previous_passing_year date
+  previous_class_percentage decimal
+  10_roll_no varchar
+  10_board_name varchar
+  10_passing_year date
+  10_percentage decimal
+  12_roll_no varchar
+  12_board_name varchar
+  12_passing_year date
+  12_percentage decimal
+  addmission_fee varchar
+  tution_fee varchar
+  other_fee varchar
+  is_disabled boolean
+  type_of_disability varchar
+  percentage_disability decimal
+  martial_status varchar
+  parent_profession varchar
+  state varchar
+  district varchar
+  block varchar
+  house_no varchar
+  street_no varchar
+  pincode int
+  schema_applying_for int
+  approved_by_institute boolean
+  approved_by_officer boolean
+  approved_by_ministry boolean
+  student_id int
+  scheme_id int
+}
+
+Ref: scholarship_application.scheme_id > Scheme.id
+Ref: scholarship_application.student_id > student.student_id
+
+Table Scheme {
+  id int
+  name varchar
+  description varchar
+}
+
+Table nodal_officer {
+  id int
+  name varchar
+}
+
+Table ministry {
+  id int
+  name varchar
+}
+
