@@ -2,37 +2,78 @@
   <div class="card">
     <h4 class="card-header text-center">Student Registration Form</h4>
     <div class="card-body px-4">
-      <form class="mt-2">
+      <form
+        class="mt-2"
+        #studentRegisterForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        <!-- {{ studentRegisterForm.value | json }} -->
+        {{ studentModel | json }}
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label" for="domicile">State of Domicile</label>
             <select
               class="form-select"
-              aria-label="Default select example"
-              (change)="changeDistrict($event)"
+              name="StateOfDomicile"
+              #state="ngModel"
+              [class.is-invalid]="state.invalid && state.touched"
+              (change)="changeDistrict(state.value)"
+              [(ngModel)]="studentModel.StateOfDomicile"
+              required
             >
-              <option *ngFor="let state of states" value="{{ state.state }}">
+              <option value="">Select State</option>
+              <option *ngFor="let state of states" [value]="state.state">
                 {{ state.state }}
               </option>
             </select>
+            <small
+              class="invalid-feedback"
+              *ngIf="state.valid || state.untouched"
+              >Please choose a state</small
+            >
           </div>
           <div class="col-md-4">
             <label class="form-label" for="domicile">District</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select District</option>
-              <option *ngFor="let district of districts" value="{{ district }}">
+            <select
+              class="form-select"
+              #district="ngModel"
+              name="District"
+              [(ngModel)]="studentModel.District"
+              [class.is-invalid]="district.invalid && district.touched"
+              required
+            >
+              <option value="">Select District</option>
+              <option *ngFor="let district of districts" [value]="district">
                 {{ district }}
               </option>
             </select>
+            <small
+              class="invalid-feedback"
+              *ngIf="district.valid || district.untouched"
+              >Please choose your district</small
+            >
           </div>
           <div class="col-md-4">
             <label class="form-label" for="domicile">Gender</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Select Gender</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-              <option value="3">Other</option>
+            <select
+              class="form-select"
+              #gender="ngModel"
+              name="Gender"
+              [(ngModel)]="studentModel.Gender"
+              [class.is-invalid]="gender.invalid && gender.touched"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option *ngFor="let gender of genders" [value]="gender">
+                {{ gender }}
+              </option>
             </select>
+            <small
+              class="invalid-feedback"
+              *ngIf="gender.valid || gender.untouched"
+              >Please choose your gender</small
+            >
           </div>
         </div>
         <div class="row mb-3">
@@ -40,31 +81,56 @@
             <label for="name" class="form-label">Name (As in Marksheet)</label>
             <input
               type="text"
-              name="name"
+              #studentName="ngModel"
+              name="StudentName"
               class="form-control"
-              id="name"
+              [(ngModel)]="studentModel.StudentName"
+              [class.is-invalid]="studentName.invalid && studentName.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="
+                studentName.errors &&
+                (studentName.invalid || studentName.touched)
+              "
+              >Name is required</small
+            >
           </div>
           <div class="col-md-4">
             <label for="email" class="form-label">Email</label>
             <input
               type="email"
-              name="email"
+              name="Email"
+              #email="ngModel"
               class="form-control"
-              id="email"
+              [(ngModel)]="studentModel.Email"
+              [class.is-invalid]="email.invalid && email.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="email.errors && (email.invalid || email.touched)"
+              >Email is required</small
+            >
           </div>
           <div class="col-md-4">
             <label for="mobile" class="form-label">Mobile</label>
             <input
               type="text"
-              name="mobile"
-              class="form-control"
-              id="mobile"
+              name="Mobile"
+              #mobile="ngModel"
               required
+              [class.is-invalid]="mobile.invalid && mobile.touched"
+              class="form-control"
+              [(ngModel)]="studentModel.Mobile"
             />
+
+            <small
+              class="invalid-feedback"
+              *ngIf="mobile.errors && (mobile.invalid || mobile.touched)"
+              >Phone number is required</small
+            >
           </div>
         </div>
         <div class="row mb-3">
@@ -74,11 +140,23 @@
             >
             <input
               type="text"
-              name="institute-code"
+              name="InstituteCode"
+              #instituteCode="ngModel"
               class="form-control"
-              id="institute-code"
+              [(ngModel)]="studentModel.InstituteCode"
+              [class.is-invalid]="
+                instituteCode.invalid && instituteCode.touched
+              "
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="
+                instituteCode.errors &&
+                (instituteCode.invalid || instituteCode.touched)
+              "
+              >Institute Code is required</small
+            >
           </div>
           <div class="col-md-3">
             <label for="dob" class="form-label">Date of Birth</label>
@@ -86,10 +164,13 @@
               <input
                 class="form-control"
                 placeholder="yyyy-mm-dd"
-                name="dob"
-                [(ngModel)]="model"
+                name="DateOfBirth"
                 ngbDatepicker
+                #dob="ngModel"
                 #d="ngbDatepicker"
+                [(ngModel)]="studentModel.DateOfBirth"
+                [class.is-invalid]="dob.invalid && dob.touched"
+                required
               />
               <button
                 class="btn btn-outline-secondary"
@@ -98,17 +179,29 @@
               >
                 <i class="bi bi-calendar-fill"></i>
               </button>
+              <small
+                class="invalid-feedback"
+                *ngIf="dob.errors && (dob.invalid || dob.touched)"
+                >Date of Birth is required</small
+              >
             </div>
           </div>
           <div class="col-md-6">
             <label for="aadhar" class="form-label">Aadhar Number</label>
             <input
               type="text"
-              name="aadhar"
+              name="AadharNumber"
+              #aadhar="ngModel"
               class="form-control"
-              id="aadhar"
+              [(ngModel)]="studentModel.AadharNumber"
+              [class.is-invalid]="aadhar.invalid && aadhar.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="aadhar.errors && (aadhar.invalid || aadhar.touched)"
+              >Aadhar Number is required</small
+            >
           </div>
         </div>
         <div class="row mb-3">
@@ -116,11 +209,18 @@
             <label for="ifsc-code" class="form-label">Bank IFSC Code</label>
             <input
               type="text"
-              name="ifsc-code"
+              name="BankIfscCode"
+              #bankifsc="ngModel"
               class="form-control"
-              id="ifsc-code"
+              [(ngModel)]="studentModel.BankIfscCode"
+              [class.is-invalid]="bankifsc.invalid && bankifsc.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="bankifsc.errors && (bankifsc.invalid || bankifsc.touched)"
+              >IFSC Code is required</small
+            >
           </div>
           <div class="col-md-6">
             <label for="account-number" class="form-label"
@@ -128,21 +228,37 @@
             >
             <input
               type="text"
-              name="account-number"
+              name="BankAccountNumber"
+              #accountNo="ngModel"
               class="form-control"
-              id="account-number"
+              [(ngModel)]="studentModel.BankAccountNumber"
+              [class.is-invalid]="accountNo.invalid && accountNo.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="
+                accountNo.errors && (accountNo.invalid || accountNo.touched)
+              "
+              >Account Number is required</small
+            >
           </div>
           <div class="col-md-3">
             <label for="bank-name" class="form-label">Bank Name</label>
             <input
               type="text"
-              name="bank-name"
+              name="BankName"
               class="form-control"
-              id="bank-name"
+              #bankName="ngModel"
+              [(ngModel)]="studentModel.BankName"
+              [class.is-invalid]="bankName.invalid && bankName.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="bankName.errors && (bankName.invalid || bankName.touched)"
+              >Bank Name is required</small
+            >
           </div>
         </div>
         <div class="row mb-3">
@@ -150,25 +266,47 @@
             <label for="password" class="form-label">Password</label>
             <input
               type="password"
-              name="password"
+              name="Password"
+              #password="ngModel"
               class="form-control"
-              id="password"
+              [(ngModel)]="studentModel.Password"
+              [class.is-invalid]="password.invalid && password.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="password.errors && (password.invalid || password.touched)"
+              >Password is required</small
+            >
           </div>
           <div class="col-md-6">
             <label for="password2" class="form-label">Confirm Password</label>
             <input
               type="password"
-              name="password2"
+              #password2="ngModel"
+              name="Password2"
               class="form-control"
-              id="password2"
+              [(ngModel)]="studentModel.Password2"
+              [class.is-invalid]="password2.invalid && password2.touched"
               required
             />
+            <small
+              class="invalid-feedback"
+              *ngIf="
+                password2.errors && (password2.invalid || password2.touched)
+              "
+              >Confirm Password is required</small
+            >
           </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <button
+            type="submit"
+            class="btn btn-dark"
+            [disabled]="studentRegisterForm.form.invalid"
+          >
+            Submit
+          </button>
           <button type="submit" class="btn btn-outline-secondary">Reset</button>
         </div>
       </form>

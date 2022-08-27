@@ -1,9 +1,5 @@
 export const STATES = [
   {
-    state: 'Select State',
-    districts: '',
-  },
-  {
     state: 'Andhra Pradesh',
     districts: [
       'Anantapur',
