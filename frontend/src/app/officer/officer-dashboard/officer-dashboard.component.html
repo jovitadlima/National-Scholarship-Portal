@@ -1,1 +1,27 @@
-<p>officer-dashboard works!</p>
+<div class="container py-5">
+  <div class="rectangle">
+    <h1 class="text-center mb-5">Welcome to The Nodal Officer Dashboard</h1>
+  </div>
+  <div class="text-center mb-5">
+    <img
+      src="https://cdn1.vectorstock.com/i/1000x1000/53/05/office-clerk-icon-vector-19815305.jpg"
+      width="300"
+      height="250"
+      class="center"
+    />
+  </div>
+  <div class="mt-5 d-grid gap-4 d-md-flex justify-content-md-center">
+    <button
+      [routerLink]="['/studentappforms']"
+      class="btn btn-lg btn-dark px-5"
+    >
+      STUDENT APPLICATION FORMS
+    </button>
+    <button
+      [routerLink]="['/instituteregforms']"
+      class="btn btn-lg btn-dark px-5"
+    >
+      INSTITUTE REGISTRATION FORMS
+    </button>
+  </div>
+</div>
