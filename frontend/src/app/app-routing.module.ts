@@ -80,12 +80,12 @@ const routes: Routes = [
     component: InstituteDashboardComponent,
   },
   {
-    path: 'instituteStudentApplicationsList',
+    path: 'instituteStudentApplications',
     canActivate: [AuthGuard],
     component: InstituteViewApplicationListComponent,
   },
   {
-    path: 'instituteStudentApplicationsDetails',
+    path: 'instituteStudentApplicationDetail/:id',
     canActivate: [AuthGuard],
     component: InstituteViewApplicationDetailsComponent,
   },

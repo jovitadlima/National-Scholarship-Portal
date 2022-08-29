@@ -2,6 +2,9 @@
   <div class="card">
     <h4 class="card-header text-center">Institute Registration Form</h4>
     <div class="card-body px-4">
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
       <form
         class="mt-2"
         #instituteRegisterForm="ngForm"
@@ -135,12 +138,11 @@
             </small>
           </div>
           <div class="col-md-3">
-            <label for="District Code" class="form-label">District Code</label>
+            <label class="form-label">Dise Code</label>
             <input
               type="text"
               name="DiseCode"
               class="form-control"
-              id="District Code"
               required
               #diseCode="ngModel"
               [(ngModel)]="instituteModel.DiseCode"

@@ -33,8 +33,8 @@ export class StudentRegisterComponent implements OnInit {
     );
 
     this._authenticationService.registerStudent(this.studentModel).subscribe(
-      (data) => {
-        console.log('Response:::', data);
+      (response) => {
+        console.log('Response:::', response);
         this.responseMessage = 'Success';
         this._router.navigate(['/studentSuccess']);
       },
