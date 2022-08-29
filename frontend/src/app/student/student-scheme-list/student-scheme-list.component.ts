@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IScheme } from 'src/app/models/IScheme';
+import { SchemeService } from 'src/app/services/scheme.service';
 
 @Component({
   selector: 'app-student-scheme-list',
@@ -7,38 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentSchemeListComponent implements OnInit {
   // for demo purpose only, remove later
-  public schemes = [
-    {
-      id: 1,
-      Name: 'Maharashtra DTE Scholarship',
-      applied: true,
-      Description:
-        'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
-    },
-    {
-      id: 2,
-      Name: 'West Bengal DTE Scholarship',
-      applied: false,
-      Description:
-        'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
-    },
-    {
-      id: 3,
-      Name: 'Delhi DTE Scholarship',
-      applied: false,
-      Description:
-        'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
-    },
-    {
-      id: 4,
-      Name: 'Maharashtra Scholarship for girls',
-      applied: false,
-      Description:
-        'lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ',
-    },
-  ];
+  public schemes: IScheme[] = [];
 
-  constructor() {}
+  constructor(private _schemeService: SchemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._schemeService.getScheme().subscribe((response: IScheme[]) => {
+      this.schemes = response;
+      console.log('Schemes', response);
+    });
+  }
 }

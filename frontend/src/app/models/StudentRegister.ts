@@ -7,7 +7,7 @@ export class StudentRegister {
     public Gender: string = '',
     public StudentName: string = '',
     public Email: string = '',
-    public Mobile: string = '',
+    public PhoneNo: string = '',
     public InstituteCode: string = '',
     public DateOfBirth: string = '',
     public AadharNumber: string = '',

@@ -1,1 +1,97 @@
-<p>student-profile works!</p>
+<div class="container p-5">
+  <div class="card">
+    <h5 class="card-header text-center">Student Details</h5>
+    <div class="card-body px-4">
+      <div class="alert alert-danger" *ngIf="responseMessage">
+        {{ responseMessage }}
+      </div>
+      <div class="mt-2">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>
+              <b>State of Domicile: </b>
+              {{ student.stateOfDomicile }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>District: </b>
+              {{ student.district }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Gender: </b>
+              {{ student.gender }}
+            </h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>
+              <b>Name (As in Marksheet): </b>
+              {{ student.studentName }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Email: </b>
+              {{ student.email }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Mobile: </b>
+              {{ student.phoneNo }}
+            </h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>
+              <b>Institute Code: </b>
+              {{ student.instituteCode }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Date of Birth: </b>
+              {{ student.dateOfBirth }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Aadhar Number: </b>
+              {{ student.aadharNumber }}
+            </h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>
+              <b>Bank IFSC Code: </b>
+              {{ student.bankIfscCode }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Bank Account Number: </b>
+              {{ student.bankAccountNumber }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Bank Name: </b>
+              {{ student.bankName }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-dark btn-lg" routerLink="/studentDashboard">
+      Go to Dashboard
+    </button>
+  </div>
+</div>

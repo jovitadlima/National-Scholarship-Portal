@@ -35,7 +35,11 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { GuidelinesComponent } from './shared/guidelines/guidelines.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthGuard } from './services/auth.guard';
+import { AuthenticationService } from './services/authentication.service';
+import { StudentApplicationsDetailComponent } from './student/student-applications-detail/student-applications-detail.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +74,7 @@ import { HttpClientModule } from '@angular/common/http';
     StudentApplicationsComponent,
     ErrorPageComponent,
     GuidelinesComponent,
+    StudentApplicationsDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,15 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

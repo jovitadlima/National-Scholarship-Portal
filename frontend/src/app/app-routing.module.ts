@@ -16,8 +16,10 @@ import { OfficerInstituteRegistrationRequestListComponent } from './officer/offi
 import { OfficerLoginComponent } from './officer/officer-login/officer-login.component';
 import { ViewScholarshipApplicationDetailsComponent } from './officer/view-scholarship-application-details/view-scholarship-application-details.component';
 import { ViewScholarshipApplicationListComponent } from './officer/view-scholarship-application-list/view-scholarship-application-list.component';
+import { AuthGuard } from './services/auth.guard';
 import { LandingPageComponent } from './shared/landing-page/landing-page.component';
 import { ScholarshipApplicationFormComponent } from './student/scholarship-application-form/scholarship-application-form.component';
+import { StudentApplicationsDetailComponent } from './student/student-applications-detail/student-applications-detail.component';
 import { StudentApplicationsComponent } from './student/student-applications/student-applications.component';
 import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 import { StudentLoginComponent } from './student/student-login/student-login.component';
@@ -32,59 +34,105 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent },
   // for student
   { path: 'studentRegister', component: StudentRegisterComponent },
-  { path: 'studentDashboard', component: StudentDashboardComponent },
-  { path: 'studentProfile', component: StudentProfileComponent },
+  {
+    path: 'studentDashboard',
+    canActivate: [AuthGuard],
+    component: StudentDashboardComponent,
+  },
+  {
+    path: 'studentProfile',
+    canActivate: [AuthGuard],
+    component: StudentProfileComponent,
+  },
   {
     path: 'scholarshipApplicationForm',
+    canActivate: [AuthGuard],
     component: ScholarshipApplicationFormComponent,
   },
-  { path: 'studentApplications', component: StudentApplicationsComponent },
+  {
+    path: 'studentApplications',
+    canActivate: [AuthGuard],
+    component: StudentApplicationsComponent,
+  },
+  {
+    path: 'studentApplicationDetail/:id',
+    canActivate: [AuthGuard],
+    component: StudentApplicationsDetailComponent,
+  },
   { path: 'studentLogin', component: StudentLoginComponent }, // check if required
-  { path: 'schemesList', component: StudentSchemeListComponent },
-  { path: 'schemesDetails', component: StudentSchemeDetailsComponent },
+  {
+    path: 'schemesList',
+    canActivate: [AuthGuard],
+    component: StudentSchemeListComponent,
+  },
+  {
+    path: 'schemesDetails',
+    canActivate: [AuthGuard],
+    component: StudentSchemeDetailsComponent,
+  },
   { path: 'studentRegisterSuccess', component: StudentSuccessComponent },
 
   // for institute
   { path: 'instituteRegister', component: InstituteRegisterComponent },
-  { path: 'instituteDashboard', component: InstituteDashboardComponent },
+  {
+    path: 'instituteDashboard',
+    canActivate: [AuthGuard],
+    component: InstituteDashboardComponent,
+  },
   {
     path: 'instituteStudentApplicationsList',
+    canActivate: [AuthGuard],
     component: InstituteViewApplicationListComponent,
   },
   {
     path: 'instituteStudentApplicationsDetails',
+    canActivate: [AuthGuard],
     component: InstituteViewApplicationDetailsComponent,
   },
   { path: 'instituteLogin', component: InstituteLoginComponent }, // check if required
 
   // for officer
-  { path: 'officerDashboard', component: OfficerDashboardComponent },
+  {
+    path: 'officerDashboard',
+    canActivate: [AuthGuard],
+    component: OfficerDashboardComponent,
+  },
   { path: 'officerLogin', component: OfficerLoginComponent },
   {
     path: 'officerApplicationDetail',
+    canActivate: [AuthGuard],
     component: ViewScholarshipApplicationDetailsComponent,
   },
   {
     path: 'officerApplicationList',
+    canActivate: [AuthGuard],
     component: ViewScholarshipApplicationListComponent,
   },
   {
     path: 'officerInstituteDetail',
+    canActivate: [AuthGuard],
     component: OfficerInstituteRegistrationRequestDetailsComponent,
   },
   {
     path: 'officerInstituteList',
+    canActivate: [AuthGuard],
     component: OfficerInstituteRegistrationRequestListComponent,
   },
 
   // for ministry
-  { path: 'ministryDashboard', component: MinistryDashboardComponent },
+  {
+    path: 'ministryDashboard',
+    canActivate: [AuthGuard],
+    component: MinistryDashboardComponent,
+  },
   {
     path: 'ministryStudentApplications',
+    canActivate: [AuthGuard],
     component: MinistryStudentApplicationListComponent,
   },
   {
     path: 'institutePendingList',
+    canActivate: [AuthGuard],
     component: MinistryInstituteRegistrationRequestListComponent,
   },
   // { path: 'ministrySchemeDetails', component: SchemeDetailsComponent },

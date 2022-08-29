@@ -18,8 +18,40 @@
         <a class="nav-item nav-link" href="#">About Us</a>
         <a class="nav-item nav-link" href="#">Contact Us</a>
       </ul>
-      <a type="button" class="btn btn-outline-light mx-2" href="#">Login</a>
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="!_authenticationService.isLoggedIn()">
+        <button
+          class="btn btn-light px-4 dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Login
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" routerLink="/studentLogin"
+              >Student Login</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/instituteLogin"
+              >Institute Login</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/officerLogin"
+              >Officer Login</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/ministryLogin"
+              >Ministry Login</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown mx-2" *ngIf="!_authenticationService.isLoggedIn()">
         <button
           class="btn btn-light px-4 dropdown-toggle"
           type="button"
@@ -30,10 +62,25 @@
           Register
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Student Registration</a></li>
-          <li><a class="dropdown-item" href="#">Institute Registration</a></li>
+          <li>
+            <a class="dropdown-item" routerLink="/studentRegister"
+              >Student Registration</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="/instituteRegister"
+              >Institute Registration</a
+            >
+          </li>
         </ul>
       </div>
+      <a
+        type="button"
+        class="btn btn-light mx-2"
+        *ngIf="_authenticationService.isLoggedIn()"
+        (click)="_authenticationService.logout()"
+        >Logout</a
+      >
     </div>
   </div>
 </nav>

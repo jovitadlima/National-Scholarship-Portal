@@ -1,20 +1,27 @@
 <div class="container py-5">
+  <div class="card bg-light mb-3">
+    <h4 class="card-header text-center">Welcome {{ student.studentName }}</h4>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <div class="card">
         <h5 class="card-header text-center">Featured</h5>
         <ul class="list-group list-group-flush text-center">
           <li class="list-group-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" routerLink="/studentDashboard">Dashboard</a>
           </li>
           <li class="list-group-item">
-            <a class="nav-link" href="#">My Profile</a>
+            <a class="nav-link" routerLink="/studentProfile">My Profile</a>
           </li>
           <li class="list-group-item">
-            <a class="nav-link" href="#">Apply for Scholarchip</a>
+            <a class="nav-link" routerLink="/schemesList"
+              >Apply for Scholarship</a
+            >
           </li>
           <li class="list-group-item">
-            <a class="nav-link" href="#">Check Status</a>
+            <a class="nav-link" routerLink="/studentApplications"
+              >Check Status</a
+            >
           </li>
         </ul>
       </div>

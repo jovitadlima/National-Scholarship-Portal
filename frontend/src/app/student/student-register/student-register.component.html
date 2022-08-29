@@ -2,14 +2,15 @@
   <div class="card">
     <h4 class="card-header text-center">Student Registration Form</h4>
     <div class="card-body px-4">
+      <div class="alert alert-danger" *ngIf="responseMessage">
+        {{ responseMessage }}
+      </div>
       <form
         class="mt-2"
         #studentRegisterForm="ngForm"
-        (ngSubmit)="onSubmit()"
+        (ngSubmit)="onSubmit(studentRegisterForm)"
         novalidate
       >
-        <!-- {{ studentRegisterForm.value | json }} -->
-        {{ studentModel | json }}
         <div class="row mb-3">
           <div class="col-md-4">
             <label class="form-label" for="domicile">State of Domicile</label>
@@ -118,12 +119,12 @@
             <label for="mobile" class="form-label">Mobile</label>
             <input
               type="text"
-              name="Mobile"
+              name="PhoneNo"
               #mobile="ngModel"
               required
               [class.is-invalid]="mobile.invalid && mobile.touched"
               class="form-control"
-              [(ngModel)]="studentModel.Mobile"
+              [(ngModel)]="studentModel.PhoneNo"
             />
 
             <small

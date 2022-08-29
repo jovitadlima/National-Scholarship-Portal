@@ -5,22 +5,30 @@
       <table class="table align-middle text-center">
         <thead class="table-dark">
           <tr>
-            <th scope="col">Student Id</th>
+            <th scope="col">Application Id</th>
             <th scope="col">Aadhar Card</th>
-            <th scope="col">Student Name</th>
             <th scope="col">Institute Name</th>
+            <th scope="col">Institute Code</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>123456</td>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let application of applications">
+            <td>{{ application.applicationId }}</td>
+            <td>{{ application.aadharNumber }}</td>
+            <td>{{ application.instituteName }}</td>
+            <td>{{ application.instituteCode }}</td>
             <td>
               <div>
-                <button class="btn btn-secondary">View</button>
+                <button
+                  class="btn btn-secondary"
+                  [routerLink]="[
+                    '/studentApplicationDetail',
+                    application.applicationId
+                  ]"
+                >
+                  View
+                </button>
               </div>
             </td>
           </tr>
