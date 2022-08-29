@@ -26,6 +26,7 @@ export class StudentRegisterComponent implements OnInit {
     this.studentModel.DateOfBirth = this.toStringDate(
       this.studentModel.DateOfBirth
     );
+
     console.log(JSON.stringify(this.studentModel));
     alert(this.studentModel);
   }
