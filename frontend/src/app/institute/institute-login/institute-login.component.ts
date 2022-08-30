@@ -29,7 +29,9 @@ export class InstituteLoginComponent implements OnInit {
           localStorage.setItem('authToken', response.token);
           this._router.navigate(['/instituteDashboard']);
         },
-        (error) => (this.responseMessage = error.statusText)
+        (error) => {
+          this.responseMessage = error.message;
+        }
       );
   }
 }

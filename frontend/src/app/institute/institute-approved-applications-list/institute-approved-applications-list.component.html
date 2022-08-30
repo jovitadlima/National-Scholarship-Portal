@@ -1,0 +1,39 @@
+<div class="container py-5">
+  <div class="card">
+    <h5 class="card-header text-center">Approved Scholarship Applications</h5>
+    <div class="card-body">
+      <table class="table align-middle text-center" *ngIf="applications">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Application Id</th>
+            <th scope="col">Aadhar Card</th>
+            <th scope="col">Institute Name</th>
+            <th scope="col">Institute Code</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let application of applications">
+            <td>{{ application.applicationId }}</td>
+            <td>{{ application.aadharNumber }}</td>
+            <td>{{ application.instituteName }}</td>
+            <td>{{ application.instituteCode }}</td>
+            <td>
+              <div>
+                <button
+                  class="btn btn-secondary"
+                  [routerLink]="[
+                    '/instituteStudentApplicationDetail',
+                    application.applicationId
+                  ]"
+                >
+                  View
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

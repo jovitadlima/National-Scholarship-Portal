@@ -40,6 +40,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { StudentApplicationsDetailComponent } from './student/student-applications-detail/student-applications-detail.component';
+import { InstituteAllStudentsListComponent } from './institute/institute-all-students-list/institute-all-students-list.component';
+import { InstituteApprovedApplicationsListComponent } from './institute/institute-approved-applications-list/institute-approved-applications-list.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,8 @@ import { StudentApplicationsDetailComponent } from './student/student-applicatio
     ErrorPageComponent,
     GuidelinesComponent,
     StudentApplicationsDetailComponent,
+    InstituteAllStudentsListComponent,
+    InstituteApprovedApplicationsListComponent,
   ],
   imports: [
     BrowserModule,

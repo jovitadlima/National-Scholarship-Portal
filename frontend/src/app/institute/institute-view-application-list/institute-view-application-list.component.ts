@@ -11,13 +11,17 @@ export class InstituteViewApplicationListComponent implements OnInit {
   constructor(private _instituteService: InstituteService) {}
 
   applications: IStudentApplication[] = [];
+  errorMessage = '';
 
   ngOnInit(): void {
-    this._instituteService
-      .getPendingApplications()
-      .subscribe((response: IStudentApplication[]) => {
+    this._instituteService.getPendingApplications().subscribe(
+      (response: IStudentApplication[]) => {
         this.applications = response;
-        console.log(response);
-      });
+        console.log(this.applications);
+      },
+      (error) => {
+        this.errorMessage = error.message;
+      }
+    );
   }
 }

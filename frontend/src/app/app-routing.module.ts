@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { InstituteAllStudentsListComponent } from './institute/institute-all-students-list/institute-all-students-list.component';
+import { InstituteApprovedApplicationsListComponent } from './institute/institute-approved-applications-list/institute-approved-applications-list.component';
 import { InstituteDashboardComponent } from './institute/institute-dashboard/institute-dashboard.component';
 import { InstituteLoginComponent } from './institute/institute-login/institute-login.component';
 import { InstituteRegisterComponent } from './institute/institute-register/institute-register.component';
@@ -90,6 +92,16 @@ const routes: Routes = [
     component: InstituteViewApplicationDetailsComponent,
   },
   { path: 'instituteLogin', component: InstituteLoginComponent }, // check if required
+  {
+    path: 'instituteAllStudents',
+    canActivate: [AuthGuard],
+    component: InstituteAllStudentsListComponent,
+  },
+  {
+    path: 'instituteApprovedApplications',
+    canActivate: [AuthGuard],
+    component: InstituteApprovedApplicationsListComponent,
+  },
 
   // for officer
   {

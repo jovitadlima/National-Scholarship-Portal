@@ -1,1 +1,253 @@
-<p>institute-view-application-details works!</p>
+<div class="container py-5">
+  <div class="card">
+    <h4 class="card-header text-center">Scholarship Application</h4>
+    <div class="card-body px-4">
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <div
+        class="alert alert-success text-center"
+        [class.alert-danger]="!approved"
+      >
+        <h4>{{ approved ? "Application Approved" : "Pending Approval" }}</h4>
+      </div>
+      <div>
+        <h5 class="underline mb-3 mt-2"><u>BASIC DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Father Name: </b> {{ application.fatherName }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Mother Name: </b> {{ application.motherName }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Religion: </b> {{ application.religion }}</h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Community: </b> {{ application.community }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Aadhar Number: </b> {{ application.aadharNumber }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Family Annual Income: </b> {{ application.annualIncome }}
+            </h5>
+          </div>
+        </div>
+        <h5 class="underline mb-3 mt-4"><u>ACADEMIC DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Institute Name: </b> {{ application.instituteName }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Present Class/Course: </b> {{ application.presentCourse }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Present Class/Course Year: </b>
+              {{ application.presentCourseYear }}
+            </h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Mode of Study: </b> {{ application.modeOfStudy }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>University/Board Name: </b>
+              {{ application.universityBoardName }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Class Start Date: </b> {{ application.classStartDate }}</h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5>
+              <b>Previous Class/Course: </b> {{ application.previousCourse }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Previous Passing Year: </b>
+              {{ application.previousPassingYear }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Previous Class %: </b>
+              {{ application.previousClassPercentage }}%
+            </h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>10TH CLASS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Roll Number: </b> {{ application.rollNo10 }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Board Name: </b> {{ application.boardName10 }}</h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Passing Year: </b> {{ application.passingYear10 }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Percentage Obtained: </b> {{ application.percentage10 }}</h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>12TH CLASS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Roll Number: </b> {{ application.rollNo12 }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Board Name: </b> {{ application.boardName12 }}</h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Passing Year: </b> {{ application.passingYear12 }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Percentage Obtained: </b> {{ application.percentage12 }}</h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>FEE DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Addmission Fee: </b> {{ application.addmissionFee }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Tution Fee: </b> {{ application.tutionFee }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Other Fee: </b> {{ application.otherFee }}</h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>OTHER PERSONAL DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Is Disabled: </b> {{ application.isDisabled }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Type of Disability: </b> {{ application.typeOfDisability }}
+            </h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>% of Disability: </b> {{ application.percentageDisability }}
+            </h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Martial Status: </b> {{ application.martialStatus }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>
+              <b>Parents Profession: </b> {{ application.parentProfession }}
+            </h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>CONTACT DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>State: </b> {{ application.state }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>District: </b> {{ application.district }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Block/Taluk: </b> {{ application.block }}</h5>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>House Number: </b> {{ application.houseNumber }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Street Number: </b> {{ application.streetNumber }}</h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Pincode: </b> {{ application.pincode }}</h5>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Scholarship Id: </b> {{ application.schemeId }}</h5>
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>DOCUMENTS UPLOAD SECTION: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Domicile Certificate: </b></h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Student Photograph: </b></h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Institute ID Card: </b></h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Caste/Income Certificate: </b></h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Previous Year Marksheet: </b></h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Fee Receipt of Current Year: </b></h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>Bank Passbook (Front Page): </b></h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>Aadhar Card: </b></h5>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <h5><b>10th Class Marksheet: </b></h5>
+          </div>
+          <div class="col-md-4">
+            <h5><b>12th Class Marksheet: </b></h5>
+          </div>
+        </div>
+        <div
+          class="d-grid gap-2 d-md-flex justify-content-md-center"
+          *ngIf="!approved"
+        >
+          <button class="btn btn-success px-4" (click)="approveApplication()">
+            Approve
+          </button>
+          <button class="btn btn-danger px-4" (click)="rejectApplication()">
+            Reject
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
