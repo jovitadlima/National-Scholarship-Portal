@@ -1,0 +1,70 @@
+<div class="container py-5">
+  <div class="card" style="max-width: 58rem">
+    <h4 class="card-header text-center">Edit Scheme</h4>
+    <div class="card-body px-4">
+      <form
+        class="px-3"
+        #editSchemeForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        {{ schemeModel | json }}
+        <div class="form-group">
+          <div>
+            <label class="form-label">Enter Name</label>
+            <input
+              type="text"
+              name="Name"
+              class="form-control mb-2"
+              placeholder="Scheme Name"
+              #sname="ngModel"
+              [class.is-invalid]="sname.invalid && sname.touched"
+              [(ngModel)]="schemeModel.Name"
+              required
+            />
+            <small
+              class="invalid-feedback mb-2"
+              *ngIf="sname.errors && (sname.invalid || sname.touched)"
+              >Name is required</small
+            >
+          </div>
+          <div>
+            <label class="form-label">Enter Description</label>
+            <input
+              type="text"
+              name="Description"
+              class="form-control"
+              placeholder="Scheme Description"
+              #description="ngModel"
+              [class.is-invalid]="description.invalid && description.touched"
+              [(ngModel)]="schemeModel.Description"
+              required
+            />
+            <small
+              class="invalid-feedback"
+              *ngIf="
+                description.errors &&
+                (description.invalid || description.touched)
+              "
+              >Description is required</small
+            >
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-success px-4 mt-3 me-2"
+          [disabled]="editSchemeForm.form.invalid"
+        >
+          Edit
+        </button>
+        <button
+          class="btn btn-danger px-4 mt-3"
+          routerLink="/ministrySchemeList"
+        >
+          Close
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
-<div class="container py-5">
+<div style="max-width: 700px; margin: 0 auto" class="container py-5">
   <div class="card">
     <h4 class="card-header text-center">Student Login Form</h4>
-    <div class="card-body px-4">
+    <div class="card-body px-3">
       <div class="alert alert-danger" *ngIf="responseMessage">
         {{ responseMessage }}
       </div>
@@ -13,39 +13,42 @@
       >
         {{ studentLoginModel | json }}
         <div class="form-group">
-          <label for="email" class="form-label">Aadhar Number</label>
-          <input
-            type="text"
-            name="AadharNumber"
-            class="form-control mb-2"
-            placeholder="Aadhar Number"
-            #aadhar="ngModel"
-            [class.is-invalid]="aadhar.invalid && aadhar.touched"
-            [(ngModel)]="studentLoginModel.AadharNumber"
-            required
-          />
-          <small
-            class="invalid-feedback mb-2"
-            *ngIf="aadhar.errors && (aadhar.invalid || aadhar.touched)"
-            >Please enter aadhar number</small
-          >
-
-          <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            name="Password"
-            class="form-control"
-            placeholder="Password"
-            #password="ngModel"
-            [class.is-invalid]="password.invalid && password.touched"
-            [(ngModel)]="studentLoginModel.Password"
-            required
-          />
-          <small
-            class="invalid-feedback"
-            *ngIf="password.errors && (password.invalid || password.touched)"
-            >Please enter password</small
-          >
+          <div>
+            <label for="email" class="form-label">Aadhar Number</label>
+            <input
+              type="text"
+              name="AadharNumber"
+              class="form-control mb-2"
+              placeholder="Aadhar Number"
+              #aadhar="ngModel"
+              [class.is-invalid]="aadhar.invalid && aadhar.touched"
+              [(ngModel)]="studentLoginModel.AadharNumber"
+              required
+            />
+            <small
+              class="invalid-feedback mb-2"
+              *ngIf="aadhar.errors && (aadhar.invalid || aadhar.touched)"
+              >Please enter aadhar number</small
+            >
+          </div>
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="Password"
+              class="form-control"
+              placeholder="Password"
+              #password="ngModel"
+              [class.is-invalid]="password.invalid && password.touched"
+              [(ngModel)]="studentLoginModel.Password"
+              required
+            />
+            <small
+              class="invalid-feedback"
+              *ngIf="password.errors && (password.invalid || password.touched)"
+              >Please enter password</small
+            >
+          </div>
         </div>
 
         <button

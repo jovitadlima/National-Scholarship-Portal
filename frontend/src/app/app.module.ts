@@ -37,11 +37,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
-import { AuthGuard } from './services/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { StudentApplicationsDetailComponent } from './student/student-applications-detail/student-applications-detail.component';
 import { InstituteAllStudentsListComponent } from './institute/institute-all-students-list/institute-all-students-list.component';
 import { InstituteApprovedApplicationsListComponent } from './institute/institute-approved-applications-list/institute-approved-applications-list.component';
+import { StudentAuthGuard } from './services/auth-guards/student-auth.guard';
+import { InstituteAuthGuard } from './services/auth-guards/institute-auth.guard';
+import { OfficerAuthGuard } from './services/auth-guards/officer-auth.guard';
+import { MinistryAuthGuard } from './services/auth-guards/ministry-auth.guard';
+import { MinistrySchemeAddComponent } from './ministry/ministry-scheme-add/ministry-scheme-add.component';
+import { MinistrySchemeDetailsComponent } from './ministry/ministry-scheme-details/ministry-scheme-details.component';
+import { MinistrySchemeEditComponent } from './ministry/ministry-scheme-edit/ministry-scheme-edit.component';
+import { MinistrySchemeListComponent } from './ministry/ministry-scheme-list/ministry-scheme-list.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { AboutUsComponent } from './shared/about-us/about-us.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +89,13 @@ import { InstituteApprovedApplicationsListComponent } from './institute/institut
     StudentApplicationsDetailComponent,
     InstituteAllStudentsListComponent,
     InstituteApprovedApplicationsListComponent,
+    MinistrySchemeAddComponent,
+    MinistrySchemeDetailsComponent,
+    MinistrySchemeEditComponent,
+    MinistrySchemeListComponent,
+    FooterComponent,
+    AboutUsComponent,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +106,10 @@ import { InstituteApprovedApplicationsListComponent } from './institute/institut
   ],
   providers: [
     AuthenticationService,
-    AuthGuard,
+    StudentAuthGuard,
+    InstituteAuthGuard,
+    OfficerAuthGuard,
+    MinistryAuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

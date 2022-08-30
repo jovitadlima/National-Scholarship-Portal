@@ -1,26 +1,64 @@
-<form class="px-3">
-  <div class="form-group">
-    <h3 class="h3 mb-3 font-weight-normal">Ministry Login</h3>
-    <label for="email" class="form-label">Email</label>
-    <input
-      type="email"
-      name="email"
-      class="form-control mb-2"
-      id="email"
-      required
-      placeholder="Email address"
-    />
+<div style="max-width: 700px; margin: 0 auto" class="container py-5">
+  <div class="card">
+    <h4 class="card-header text-center">Ministry Login Form</h4>
+    <div class="card-body px-3">
+      <div class="alert alert-danger" *ngIf="responseMessage">
+        {{ responseMessage }}
+      </div>
+      <form
+        class="px-3"
+        #officerLoginForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
+        {{ ministryLoginModel | json }}
+        <div class="form-group">
+          <div>
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              name="Email"
+              class="form-control mb-2"
+              placeholder="Email Address"
+              #email="ngModel"
+              [class.is-invalid]="email.invalid && email.touched"
+              [(ngModel)]="ministryLoginModel.Email"
+              required
+            />
+            <small
+              class="invalid-feedback mb-2"
+              *ngIf="email.errors && (email.invalid || email.touched)"
+              >Please enter institute code</small
+            >
+          </div>
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="Password"
+              class="form-control"
+              placeholder="Password"
+              #password="ngModel"
+              [class.is-invalid]="password.invalid && password.touched"
+              [(ngModel)]="ministryLoginModel.Password"
+              required
+            />
+            <small
+              class="invalid-feedback"
+              *ngIf="password.errors && (password.invalid || password.touched)"
+              >Please enter password</small
+            >
+          </div>
+        </div>
 
-    <label for="password" class="form-label">Password</label>
-    <input
-      type="password"
-      name="password"
-      class="form-control mb-3"
-      id="password"
-      placeholder="Password"
-      required
-    />
+        <button
+          type="submit"
+          class="btn btn-lg btn-dark px-5 mt-3"
+          [disabled]="officerLoginForm.form.invalid"
+        >
+          Login
+        </button>
+      </form>
+    </div>
   </div>
-
-  <button type="submit" class="btn btn-lg btn-primary">Login</button>
-</form>
+</div>

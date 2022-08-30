@@ -14,9 +14,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <a class="nav-item nav-link" hhref="#">Home</a>
-        <a class="nav-item nav-link" href="#">About Us</a>
-        <a class="nav-item nav-link" href="#">Contact Us</a>
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/aboutUs">About Us</a>
+        <a class="nav-item nav-link" routerLink="/contactUs">Contact Us</a>
       </ul>
       <div class="dropdown" *ngIf="!_authenticationService.isLoggedIn()">
         <button

@@ -1,7 +1,7 @@
-<div class="container py-5">
+<div style="max-width: 700px; margin: 0 auto" class="container py-5">
   <div class="card">
     <h4 class="card-header text-center">Institute Login Form</h4>
-    <div class="card-body px-4">
+    <div class="card-body px-3">
       <div class="alert alert-danger" *ngIf="responseMessage">
         {{ responseMessage }}
       </div>
@@ -13,42 +13,47 @@
       >
         {{ instituteLoginModel | json }}
         <div class="form-group">
-          <label class="form-label">Institute Code</label>
-          <input
-            type="text"
-            name="InstituteCode"
-            class="form-control mb-2"
-            placeholder="Institute Code"
-            #instituteCode="ngModel"
-            [class.is-invalid]="instituteCode.invalid && instituteCode.touched"
-            [(ngModel)]="instituteLoginModel.InstituteCode"
-            required
-          />
-          <small
-            class="invalid-feedback mb-2"
-            *ngIf="
-              instituteCode.errors &&
-              (instituteCode.invalid || instituteCode.touched)
-            "
-            >Please enter institute code</small
-          >
-
-          <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            name="Password"
-            class="form-control"
-            placeholder="Password"
-            #password="ngModel"
-            [class.is-invalid]="password.invalid && password.touched"
-            [(ngModel)]="instituteLoginModel.Password"
-            required
-          />
-          <small
-            class="invalid-feedback"
-            *ngIf="password.errors && (password.invalid || password.touched)"
-            >Please enter password</small
-          >
+          <div>
+            <label class="form-label">Institute Code</label>
+            <input
+              type="text"
+              name="InstituteCode"
+              class="form-control mb-2"
+              placeholder="Institute Code"
+              #instituteCode="ngModel"
+              [class.is-invalid]="
+                instituteCode.invalid && instituteCode.touched
+              "
+              [(ngModel)]="instituteLoginModel.InstituteCode"
+              required
+            />
+            <small
+              class="invalid-feedback mb-2"
+              *ngIf="
+                instituteCode.errors &&
+                (instituteCode.invalid || instituteCode.touched)
+              "
+              >Please enter institute code</small
+            >
+          </div>
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="Password"
+              class="form-control"
+              placeholder="Password"
+              #password="ngModel"
+              [class.is-invalid]="password.invalid && password.touched"
+              [(ngModel)]="instituteLoginModel.Password"
+              required
+            />
+            <small
+              class="invalid-feedback"
+              *ngIf="password.errors && (password.invalid || password.touched)"
+              >Please enter password</small
+            >
+          </div>
         </div>
 
         <button

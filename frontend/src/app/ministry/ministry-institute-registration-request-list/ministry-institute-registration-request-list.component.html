@@ -5,54 +5,62 @@
         <h5 class="card-header text-center">Featured</h5>
         <ul class="list-group list-group-flush text-center">
           <li class="list-group-item">
-            <a class="nav-link" href="ministrydashboard">Dashboard</a>
+            <a class="nav-link" routerLink="/ministryDashboard">Dashboard</a>
           </li>
           <li class="list-group-item">
-            <a class="nav-link" href="schemedetails">Scheme Details</a>
-          </li>
-          <li class="list-group-item">
-            <a class="nav-link" href="studentapplication"
-              >Scholarship Applications</a
+            <a class="nav-link" routerLink="/ministrySchemeList"
+              >Manage Schemes</a
             >
           </li>
           <li class="list-group-item">
-            <a class="nav-link" href="institutelist">Institute Applications</a>
+            <a class="nav-link" routerLink="/ministryApplicationList"
+              >View Applications</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/ministryInstituteList"
+              >View Institutes</a
+            >
           </li>
         </ul>
       </div>
     </div>
     <div class="col-md-9">
-      <div class="container">
-        <div class="card">
-          <div class="card">
-            <h5 class="card-header text-center">Scholarship Applications</h5>
-            <div class="card-body p-4">
-              <table class="table align-middle text-center">
-                <thead class="table-dark">
-                  <tr>
-                    <th scope="col">Institute Id</th>
-                    <th scope="col">Institute Code</th>
-                    <th scope="col">Institute Name</th>
-                    <th scope="col">Institute State</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>123456</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                      <div>
-                        <button class="btn btn-secondary">View</button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div class="card">
+        <h5 class="card-header text-center">Institute Registration Requests</h5>
+        <div class="card-body">
+          <table class="table align-middle text-center">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Institute Id</th>
+                <th scope="col">Institute Code</th>
+                <th scope="col">Institute Name</th>
+                <th scope="col">Institute State</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let institute of institutes">
+                <td>{{ institute.instituteId }}</td>
+                <td>{{ institute.instituteCode }}</td>
+                <td>{{ institute.instituteName }}</td>
+                <td>{{ institute.state }}</td>
+                <td>
+                  <div>
+                    <button
+                      class="btn btn-secondary"
+                      [routerLink]="[
+                        '/ministryInstituteDetail/',
+                        institute.instituteId
+                      ]"
+                    >
+                      View
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

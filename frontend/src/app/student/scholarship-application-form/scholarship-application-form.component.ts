@@ -31,7 +31,7 @@ export class ScholarshipApplicationFormComponent implements OnInit {
   institutes: IInstitute[] = [];
 
   ngOnInit(): void {
-    this._schemeService.getScheme().subscribe((response: IScheme[]) => {
+    this._schemeService.getSchemes().subscribe((response: IScheme[]) => {
       this.schemes = response;
       console.log('Schemes', response);
     });

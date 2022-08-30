@@ -1,1 +1,251 @@
-<p>officer-institute-registration-request-details works!</p>
+<div class="container py-5">
+  <div class="card">
+    <h4 class="card-header text-center">Institute Registration Form</h4>
+    <div class="card-body px-4">
+      <form>
+        <h5 class="underline mb-3 mt-2">Basic Details:</h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label" for="Category">Institute Category</label>
+            <input
+              type="text"
+              value="{{ institute.instituteCategory }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="State">State</label>
+            <input
+              type="text"
+              value="{{ institute.state }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="name" class="form-label">District</label>
+            <input
+              type="text"
+              value="{{ institute.district }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="name" class="form-label">Name Of Institute</label>
+            <input
+              type="text"
+              value="{{ institute.instituteName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="Institute Code" class="form-label"
+              >Institute Code</label
+            >
+            <input
+              type="text"
+              value="{{ institute.instituteCode }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="District Code" class="form-label">Dise Code</label>
+            <input
+              type="text"
+              value="{{ institute.diseCode }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label" for="Location">Location</label>
+            <input
+              type="text"
+              value="{{ institute.location }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5">
+            <label class="form-label" for="Institute Type"
+              >Institute Type</label
+            >
+            <input
+              type="text"
+              value="{{ institute.instituteType }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-5">
+            <label class="form-label" for="Affiliated University State"
+              >Affiliated University State</label
+            >
+            <input
+              type="text"
+              value="{{ institute.affliatedUniversityState }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-7">
+            <label for="Affiliated University/Board Name" class="form-label"
+              >Affiliated University/Board Name</label
+            >
+            <input
+              type="text"
+              value="{{ institute.affliatedUniversityName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-5">
+            <label class="form-label" for="Year"
+              >Year From Which Admission Started</label
+            >
+            <input
+              type="text"
+              value="{{ institute.yearOfAddmission }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <h5 class="underline mb-3 mt-4">Proof of Existence of Institute:</h5>
+        <div class="row mb-3">
+          <div class="col-md-8">
+            <label for="formFile" class="form-label"
+              >Institute Establishment/Registration Certificate</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <h5 class="underline mb-3 mt-4">Affiliated To:</h5>
+        <div class="row mb-3">
+          <div class="col-md-8">
+            <label for="formFile" class="form-label"
+              >University/Board Affiliation Certificate</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4">Address:</h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="Line 1" class="form-label">Address Line 1</label>
+            <input
+              type="text"
+              value="{{ institute.addressLine1 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="Line 2" class="form-label">Address Line 2</label>
+            <input
+              type="text"
+              value="{{ institute.addressLine2 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="City" class="form-label">City</label>
+            <input
+              type="text"
+              value="{{ institute.addressCity }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="Affiliated University State"
+              >State</label
+            >
+            <input
+              type="text"
+              value="{{ institute.addressState }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="name" class="form-label">District Name </label>
+            <input
+              type="text"
+              value="{{ institute.addressDistrict }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="Pincode" class="form-label">Pincode</label>
+            <input
+              type="text"
+              value="{{ institute.addressPincode }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4">Contact Details:</h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="name" class="form-label">Principal Name </label>
+            <input
+              type="text"
+              value="{{ institute.principalName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="number" class="form-label">Mobile Number </label>
+            <input
+              type="text"
+              value="{{ institute.mobileNumber }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="Telephone" class="form-label">Telephone </label>
+            <input
+              type="text"
+              value="{{ institute.telephone }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="card-body px-1"></div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button class="btn btn-secondary px-4" (click)="back()">
+            Go Back
+          </button>
+          <button class="btn btn-success px-4" (click)="verify()">
+            Approve
+          </button>
+          <button class="btn btn-danger px-4" (click)="reject()">Reject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

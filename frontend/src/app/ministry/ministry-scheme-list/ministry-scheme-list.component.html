@@ -1,0 +1,79 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <h5 class="card-header text-center">Featured</h5>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/ministryDashboard">Dashboard</a>
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/ministrySchemeList"
+              >Manage Schemes</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/ministryApplicationList"
+              >View Applications</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a class="nav-link" routerLink="/ministryInstituteList"
+              >View Institutes</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <h5 class="card-header text-center">Institute Registration Requests</h5>
+        <div class="card-body">
+          <div class="text-end">
+            <button
+              class="btn btn-success mb-3"
+              routerLink="/ministrySchemeAdd"
+            >
+              Add New Scheme
+            </button>
+          </div>
+
+          <table class="table align-middle text-center">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let scheme of schemes">
+                <td>{{ scheme.schemeId }}</td>
+                <td>{{ scheme.name }}</td>
+                <td>{{ scheme.description }}</td>
+                <td>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button class="btn btn-primary">Details</button>
+                    <button
+                      class="btn btn-warning"
+                      [routerLink]="['/ministrySchemeEdit', scheme.schemeId]"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteScheme(scheme.schemeId)"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

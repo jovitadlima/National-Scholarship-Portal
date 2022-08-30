@@ -14,7 +14,7 @@ export class StudentSchemeListComponent implements OnInit {
   constructor(private _schemeService: SchemeService) {}
 
   ngOnInit(): void {
-    this._schemeService.getScheme().subscribe((response: IScheme[]) => {
+    this._schemeService.getSchemes().subscribe((response: IScheme[]) => {
       this.schemes = response;
       console.log('Schemes', response);
     });

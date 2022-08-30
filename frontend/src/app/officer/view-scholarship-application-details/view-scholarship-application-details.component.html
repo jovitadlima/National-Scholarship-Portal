@@ -1,1 +1,477 @@
-<p>view-scholarship-application-details works!</p>
+<div class="container py-5">
+  <div class="card">
+    <h4 class="card-header text-center">Scholarship Application Form</h4>
+    <div class="card-body px-4">
+      <form>
+        <h5 class="underline mb-3 mt-2"><u>BASIC DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-5">
+            <label for="fname" class="form-label">Father Name</label>
+            <input
+              type="text"
+              value="{{ application.fatherName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-5">
+            <label for="mname" class="form-label">Mother Name</label>
+            <input
+              type="text"
+              value="{{ application.motherName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-2">
+            <label class="form-label" for="domicile">Religion</label>
+            <input
+              type="text"
+              value="{{ application.fatherName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Community</label>
+            <input
+              type="text"
+              value="{{ application.community }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Aadhar Number</label>
+            <input
+              type="text"
+              value="{{ application.aadharNumber }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Family Annual Income</label>
+            <input
+              type="text"
+              value="{{ application.annualIncome }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <h5 class="underline mb-3 mt-4"><u>ACADEMIC DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-5">
+            <label class="form-label" for="domicile">Institute Name</label>
+            <input
+              type="text"
+              value="{{ application.instituteName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Present Class/Course</label>
+            <input
+              type="text"
+              value="{{ application.presentCourse }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-3">
+            <label for="mname" class="form-label"
+              >Present Class/Course Year</label
+            >
+            <input
+              type="text"
+              value="{{ application.presentCourseYear }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label" for="domicile">Mode of Study</label>
+            <input
+              type="text"
+              value="{{ application.modeOfStudy }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">University/Board Name</label>
+            <input
+              type="text"
+              value="{{ application.universityBoardName }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Class Start Date</label>
+            <input
+              type="text"
+              value="{{ application.classStartDate }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label class="form-label" for="domicile"
+              >Previous Class/Course</label
+            >
+            <input
+              type="text"
+              value="{{ application.previousCourse }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Previous Passing Year</label>
+            <input
+              type="text"
+              value="{{ application.previousPassingYear }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Previous Class %</label>
+            <input
+              type="text"
+              value="{{ application.previousClassPercentage }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>10TH CLASS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fname" class="form-label">Roll Number</label>
+            <input
+              type="text"
+              value="{{ application.rollNo10 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Board Name</label>
+            <input
+              type="text"
+              value="{{ application.boardName10 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Passing Year</label>
+            <input
+              type="text"
+              value="{{ application.passingYear10 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Percentage Obtained</label>
+            <input
+              type="text"
+              value="{{ application.percentage10 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>12TH CLASS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="fname" class="form-label">Roll Number</label>
+            <input
+              type="text"
+              value="{{ application.rollNo12 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Board Name</label>
+            <input
+              type="text"
+              value="{{ application.boardName12 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Passing Year</label>
+            <input
+              type="text"
+              value="{{ application.passingYear12 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="mname" class="form-label">Percentage Obtained</label>
+            <input
+              type="text"
+              value="{{ application.percentage12 }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>FEE DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="fname" class="form-label">Addmission Fee</label>
+            <input
+              type="text"
+              value="{{ application.addmissionFee }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Tution Fee</label>
+            <input
+              type="text"
+              value="{{ application.tutionFee }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Other Fee</label>
+            <input
+              type="text"
+              value="{{ application.otherFee }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>OTHER PERSONAL DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="fname" class="form-label">Is Disabled</label>
+            <input
+              type="text"
+              value="{{ application.isDisabled }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Type of Disability</label>
+            <input
+              type="text"
+              value="{{ application.typeOfDisability }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">% of Disability</label>
+            <input
+              type="text"
+              value="{{ application.percentageDisability }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-5">
+            <label for="fname" class="form-label">Martial Status</label>
+            <input
+              type="text"
+              value="{{ application.martialStatus }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-7">
+            <label for="mname" class="form-label">Parents Profession</label>
+            <input
+              type="text"
+              value="{{ application.parentProfession }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>CONTACT DETAILS: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="fname" class="form-label">State</label>
+            <input
+              type="text"
+              value="{{ application.state }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">District</label>
+            <input
+              type="text"
+              value="{{ application.district }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Block/Taluk</label>
+            <input
+              type="text"
+              value="{{ application.block }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <label for="fname" class="form-label">House Number</label>
+            <input
+              type="text"
+              value="{{ application.houseNumber }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Street Number</label>
+            <input
+              type="text"
+              value="{{ application.streetNumber }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="mname" class="form-label">Pincode</label>
+            <input
+              type="text"
+              value="{{ application.pincode }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="mname" class="form-label"
+              >Choose Scheme Applying For</label
+            >
+            <input
+              type="text"
+              value="{{ application.schemeId }}"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+
+        <h5 class="underline mb-3 mt-4"><u>DOCUMENTS UPLOAD SECTION: </u></h5>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >Domicile Certificate</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="col-md-6">
+            <label for="formFile" class="form-label">Student Photograph</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="formFile" class="form-label">Institute ID Card</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >Caste/Income Certificate</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >Previous Year Marksheet</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >Fee Receipt of Current Year</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >Bank Passbook (Front Page)</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="col-md-6">
+            <label for="formFile" class="form-label">Aadhar Card</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >10th Class Marksheet</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+          <div class="col-md-6">
+            <label for="formFile" class="form-label"
+              >12th Class Marksheet</label
+            >
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button class="btn btn-secondary px-4" (click)="back()">
+            Go Back
+          </button>
+          <button class="btn btn-success px-4" (click)="verify()">
+            Approve
+          </button>
+          <button class="btn btn-danger px-4" (click)="reject()">Reject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

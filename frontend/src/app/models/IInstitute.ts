@@ -20,4 +20,9 @@ export interface IInstitute {
   principalName: string;
   mobileNumber: string;
   telephone: string;
+  approvedByOfficer: boolean;
+  approvedByMinistry: boolean;
+  isRejected: boolean;
+  registrationCertificate: string;
+  universityAffliationCertificate: string;
 }
