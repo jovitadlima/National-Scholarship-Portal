@@ -1,97 +1,128 @@
-<div class="container p-5">
+<div class="container py-5">
   <div class="card">
-    <h5 class="card-header text-center">Student Details</h5>
+    <h4 class="card-header text-center">My Profile</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="responseMessage">
-        {{ responseMessage }}
-      </div>
-      <div class="mt-2">
+      <form>
         <div class="row mb-3">
           <div class="col-md-4">
-            <h5>
-              <b>State of Domicile: </b>
-              {{ student.stateOfDomicile }}
-            </h5>
+            <label class="div-label" for="domicile">State of Domicile</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.stateOfDomicile }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>District: </b>
-              {{ student.district }}
-            </h5>
+            <label class="div-label" for="domicile">District</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.district }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Gender: </b>
-              {{ student.gender }}
-            </h5>
+            <label class="div-label" for="domicile">Gender</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.gender }}"
+              readonly
+            />
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-4">
-            <h5>
-              <b>Name (As in Marksheet): </b>
-              {{ student.studentName }}
-            </h5>
+            <label for="name" class="div-label">Name (As in Marksheet)</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.studentName }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Email: </b>
-              {{ student.email }}
-            </h5>
+            <label for="email" class="div-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              value="{{ student.email }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Mobile: </b>
-              {{ student.phoneNo }}
-            </h5>
+            <label for="mobile" class="div-label">Mobile</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.phoneNo }}"
+              readonly
+            />
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-4">
-            <h5>
-              <b>Institute Code: </b>
-              {{ student.instituteCode }}
-            </h5>
+            <label for="institute-code" class="div-label">Institute Code</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.instituteCode }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Date of Birth: </b>
-              {{ student.dateOfBirth }}
-            </h5>
+            <label for="dob" class="div-label">Date of Birth</label>
+            <div class="input-group">
+              <input
+                class="form-control"
+                value="{{ student.dateOfBirth }}"
+                readonly
+              />
+            </div>
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Aadhar Number: </b>
-              {{ student.aadharNumber }}
-            </h5>
+            <label for="aadhar" class="div-label">Aadhar Number</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.aadharNumber }}"
+              readonly
+            />
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-4">
-            <h5>
-              <b>Bank IFSC Code: </b>
-              {{ student.bankIfscCode }}
-            </h5>
+            <label for="ifsc-code" class="div-label">Bank IFSC Code</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.bankIfscCode }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Bank Account Number: </b>
-              {{ student.bankAccountNumber }}
-            </h5>
+            <label for="account-number" class="div-label"
+              >Bank Account Number</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.bankAccountNumber }}"
+              readonly
+            />
           </div>
           <div class="col-md-4">
-            <h5>
-              <b>Bank Name: </b>
-              {{ student.bankName }}
-            </h5>
+            <label for="bank-name" class="div-label">Bank Name</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ student.bankName }}"
+              readonly
+            />
           </div>
         </div>
-      </div>
+      </form>
     </div>
-  </div>
-  <div class="text-center mt-4">
-    <button class="btn btn-dark btn-lg" routerLink="/studentDashboard">
-      Go to Dashboard
-    </button>
   </div>
 </div>

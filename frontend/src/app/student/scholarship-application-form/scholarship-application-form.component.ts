@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IInstitute } from 'src/app/models/IInstitute';
 import { IScheme } from 'src/app/models/IScheme';
 import { ScholarshipApplication } from 'src/app/models/ScholarshipApplication';
@@ -16,12 +17,12 @@ import { STATES } from '../../../assets/data/STATES';
 export class ScholarshipApplicationFormComponent implements OnInit {
   scholarshipModel = new ScholarshipApplication();
 
-  responseMessage = '';
-
   constructor(
     private _studentService: StudentService,
     private _schemeService: SchemeService,
-    private _instituteService: InstituteService
+    private _instituteService: InstituteService,
+    private _router: Router,
+    private toastr: ToastrService
   ) {}
 
   states: any = STATES;
@@ -61,12 +62,11 @@ export class ScholarshipApplicationFormComponent implements OnInit {
 
     this._studentService
       .createScholarshipApplicationForm(this.scholarshipModel)
-      .subscribe(
-        (response: any) => {
-          console.log('scholarship:::', response.result);
-        },
-        (error) => (this.responseMessage = error.statusText)
-      );
+      .subscribe((response: any) => {
+        console.log('scholarship:::', response.result);
+        this.toastr.success('Apllication form submitted');
+        this._router.navigate(['/studentApplications']);
+      });
 
     console.log(JSON.stringify(this.scholarshipModel));
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { StudentLogin } from 'src/app/models/StudentLogin';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -15,7 +16,8 @@ export class StudentLoginComponent implements OnInit {
 
   constructor(
     private _authenticationService: AuthenticationService,
-    private _router: Router
+    private _router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
@@ -26,6 +28,7 @@ export class StudentLoginComponent implements OnInit {
       (response: any) => {
         console.log('data from server :: login', response.token);
         localStorage.setItem('authToken', response.token);
+        this.toastr.success('Login Successful');
         this._router.navigate(['/studentDashboard']);
       },
       (error) => (this.responseMessage = error.statusText)

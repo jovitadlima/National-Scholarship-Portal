@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IApprovedStudentApplication } from 'src/app/models/IApprovedStudentApplication';
-import { IStudentApplication } from 'src/app/models/IStudentApplication';
 import { InstituteService } from 'src/app/services/institute.service';
 
 @Component({
@@ -12,7 +12,8 @@ import { InstituteService } from 'src/app/services/institute.service';
 export class InstituteViewApplicationDetailsComponent implements OnInit {
   constructor(
     private _instituteService: InstituteService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   application!: IApprovedStudentApplication;
@@ -41,6 +42,7 @@ export class InstituteViewApplicationDetailsComponent implements OnInit {
       .approveStudentApplication(id)
       .subscribe((response) => {
         console.log('approval response ::: ', response);
+        this.toastr.success('Application approved');
       });
   }
 
@@ -50,6 +52,7 @@ export class InstituteViewApplicationDetailsComponent implements OnInit {
       .rejectStudentApplication(id)
       .subscribe((response) => {
         console.log('rejection response ::: ', response);
+        this.toastr.success('Application rejected');
       });
   }
 }

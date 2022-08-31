@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { SchemeModel } from 'src/app/models/SchemeModel';
 import { SchemeService } from 'src/app/services/scheme.service';
 
@@ -12,7 +13,8 @@ export class MinistrySchemeEditComponent implements OnInit {
   constructor(
     private _schemeService: SchemeService,
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   schemeModel: SchemeModel = new SchemeModel();
@@ -25,6 +27,7 @@ export class MinistrySchemeEditComponent implements OnInit {
       .editScheme(id, this.schemeModel)
       .subscribe((response) => {
         console.log(response);
+        this.toastr.success('Scheme edited');
         this._router.navigate(['/ministrySchemeList']);
       });
   }

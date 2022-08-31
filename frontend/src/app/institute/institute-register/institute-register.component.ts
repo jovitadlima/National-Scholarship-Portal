@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { STATES } from '../../../assets/data/STATES';
 import { InstituteRegister } from 'src/app/models/InstituteRegister';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-institute-register',
@@ -9,7 +11,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./institute-register.component.css'],
 })
 export class InstituteRegisterComponent implements OnInit {
-  constructor(private _authenticationService: AuthenticationService) {}
+  constructor(
+    private _authenticationService: AuthenticationService,
+    private _router: Router,
+    private toastr: ToastrService
+  ) {}
 
   states: any = STATES;
   districts: any[] = [];
@@ -18,7 +24,6 @@ export class InstituteRegisterComponent implements OnInit {
   locations: string[] = ['Rural', 'Urban'];
   instituteTypes: string[] = ['Affiliated', 'Autonomous'];
   years: string[] = ['2018', '2019', '2020', '2021', '2022'];
-  errorMessage: string = '';
 
   ngOnInit(): void {}
 
@@ -28,16 +33,11 @@ export class InstituteRegisterComponent implements OnInit {
     // Ritam will implement this, registration with auth
     this._authenticationService
       .registerInstitute(this.instituteModel)
-      .subscribe(
-        (response) => {
-          console.log('Response:::', response);
-          this.errorMessage = 'Success';
-          // this._router.navigate(['/studentSuccess']);
-        },
-        (error) => {
-          this.errorMessage = error.message;
-        }
-      );
+      .subscribe((response) => {
+        console.log('Response:::', response);
+        this.toastr.success('Registration Successful');
+        this._router.navigate(['/instituteLogin']);
+      });
   }
 
   changeDistrict(selectedState: any) {

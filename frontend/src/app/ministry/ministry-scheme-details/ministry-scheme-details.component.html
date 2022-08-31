@@ -1,1 +1,18 @@
-<p>ministry-scheme-details works!</p>
+<div class="container py-5">
+  <h4 class="text-success" style="font-weight: bolder">Scheme Details</h4>
+  <div class="jumbotron">
+    <h5>
+      SCHEME ID : <P style="font-weight: normal">{{ scheme.schemeId }}</P>
+    </h5>
+    <h5>
+      SCHEME NAME : <P style="font-weight: normal">{{ scheme.name }}</P>
+    </h5>
+    <h5>
+      SCHEME DESCRIPTION :
+      <P style="font-weight: normal">{{ scheme.description }}</P>
+    </h5>
+  </div>
+  <button [routerLink]="['/ministrySchemeList']" class="btn btn-primary">
+    Go Back
+  </button>
+</div>

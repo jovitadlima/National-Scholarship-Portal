@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IApprovedStudentApplication } from 'src/app/models/IApprovedStudentApplication';
 import { MinistryService } from 'src/app/services/ministry.service';
 
@@ -13,7 +14,8 @@ export class MinistryStudentApplicationDetailsComponent implements OnInit {
 
   constructor(
     private _ministryService: MinistryService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class MinistryStudentApplicationDetailsComponent implements OnInit {
     let id = Number(this._route.snapshot.paramMap.get('id'));
     this._ministryService.verifyApplication(id).subscribe((response) => {
       console.log(response);
+      this.toastr.success('Application approved');
     });
   }
 
@@ -37,6 +40,7 @@ export class MinistryStudentApplicationDetailsComponent implements OnInit {
     let id = Number(this._route.snapshot.paramMap.get('id'));
     this._ministryService.rejectApplication(id).subscribe((response) => {
       console.log(response);
+      this.toastr.success('Application rejected');
     });
   }
 

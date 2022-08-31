@@ -2,15 +2,11 @@
   <div class="card">
     <h4 class="card-header text-center">Scholarship Application Form</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="responseMessage">
-        {{ responseMessage }}
-      </div>
       <form
         #scholarshipApplicationForm="ngForm"
         (ngSubmit)="onSubmit()"
         novalidate
       >
-        {{ scholarshipModel | json }}
         <h5 class="underline mb-3 mt-2"><u>BASIC DETAILS: </u></h5>
         <div class="row mb-3">
           <div class="col-md-5">

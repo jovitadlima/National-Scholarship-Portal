@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IInstitute } from 'src/app/models/IInstitute';
 import { MinistryService } from 'src/app/services/ministry.service';
 
@@ -18,7 +19,8 @@ export class MinistryInstituteRegistrationRequestDetailsComponent
 
   constructor(
     private _ministryService: MinistryService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class MinistryInstituteRegistrationRequestDetailsComponent
       .verifyInstituteRegistration(id)
       .subscribe((response) => {
         console.log(response);
+        this.toastr.success('Institute Approved');
       });
   }
 
@@ -44,6 +47,7 @@ export class MinistryInstituteRegistrationRequestDetailsComponent
       .rejectInstituteRegistration(id)
       .subscribe((response) => {
         console.log(response);
+        this.toastr.success('Institute rejected');
       });
   }
 

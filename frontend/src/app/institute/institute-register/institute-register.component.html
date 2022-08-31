@@ -2,16 +2,12 @@
   <div class="card">
     <h4 class="card-header text-center">Institute Registration Form</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
       <form
         class="mt-2"
         #instituteRegisterForm="ngForm"
         (ngSubmit)="onSubmit()"
         novalidate
       >
-        {{ instituteModel | json }}
         <h5 class="underline mb-3 mt-2">Basic Details:</h5>
         <div class="row mb-3">
           <div class="col-md-4">
@@ -36,7 +32,9 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="institutecategory.valid || institutecategory.untouched"
+              [class.d-none]="
+                institutecategory.valid || institutecategory.untouched
+              "
               >Please choose your Institute Category</small
             >
           </div>
@@ -59,7 +57,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="state.valid || state.untouched"
+              [class.d-none]="state.valid || state.untouched"
               >Please choose a state</small
             >
           </div>
@@ -81,7 +79,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="district.valid || district.untouched"
+              [class.d-none]="district.valid || district.untouched"
             >
               Please choose your district
             </small>
@@ -177,7 +175,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="location.valid || location.untouched"
+              [class.d-none]="location.valid || location.untouched"
               >Please choose your Location Type</small
             >
           </div>
@@ -210,7 +208,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="instituteType.valid || instituteType.untouched"
+              [class.d-none]="instituteType.valid || instituteType.untouched"
               >Please choose your Institute Type
             </small>
           </div>
@@ -235,6 +233,15 @@
                 {{ state.state }}
               </option>
             </select>
+            <small
+              class="invalid-feedback"
+              [class.d-none]="
+                affliatedUniversityState.valid ||
+                affliatedUniversityState.untouched
+              "
+            >
+              Please choose a university state
+            </small>
           </div>
         </div>
 
@@ -290,7 +297,9 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="yearOfAddmission.valid || yearOfAddmission.untouched"
+              [class.d-none]="
+                yearOfAddmission.valid || yearOfAddmission.untouched
+              "
             >
               Please choose your Year of Admission
             </small>
@@ -342,7 +351,7 @@
             <label for="formFile" class="form-label"
               >Institute Establishment/Registration Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input class="form-control" type="file" />
           </div>
         </div>
         <h5 class="underline mb-3 mt-4">Affiliated To:</h5>
@@ -351,7 +360,7 @@
             <label for="formFile" class="form-label"
               >University/Board Affiliation Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input class="form-control" type="file" />
           </div>
         </div>
 
@@ -448,7 +457,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="addressState.valid || addressState.untouched"
+              [class.d-none]="addressState.valid || addressState.untouched"
             >
               Please choose a state
             </small>
@@ -473,7 +482,9 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="addressDistrict.valid || addressDistrict.untouched"
+              [class.d-none]="
+                addressDistrict.valid || addressDistrict.untouched
+              "
             >
               Please choose a District
             </small>

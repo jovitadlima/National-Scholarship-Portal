@@ -2,16 +2,12 @@
   <div class="card">
     <h4 class="card-header text-center">Student Login Form</h4>
     <div class="card-body px-3">
-      <div class="alert alert-danger" *ngIf="responseMessage">
-        {{ responseMessage }}
-      </div>
       <form
         class="px-3"
         #studentLoginForm="ngForm"
         (ngSubmit)="onSubmit()"
         novalidate
       >
-        {{ studentLoginModel | json }}
         <div class="form-group">
           <div>
             <label for="email" class="form-label">Aadhar Number</label>

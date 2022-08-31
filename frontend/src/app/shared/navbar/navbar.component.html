@@ -74,13 +74,18 @@
           </li>
         </ul>
       </div>
-      <a
+
+      <div class="text-light" *ngIf="_authenticationService.isLoggedIn()">
+        {{ _authenticationService.getUserName() }}
+      </div>
+      <button
         type="button"
-        class="btn btn-light mx-2"
+        class="btn btn-light ms-3"
         *ngIf="_authenticationService.isLoggedIn()"
         (click)="_authenticationService.logout()"
-        >Logout</a
       >
+        Logout
+      </button>
     </div>
   </div>
 </nav>

@@ -2,9 +2,6 @@
   <div class="card">
     <h4 class="card-header text-center">Scholarship Application</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
       <div
         class="alert alert-success text-center"
         [class.alert-danger]="!approved"

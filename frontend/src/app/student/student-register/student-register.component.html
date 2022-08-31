@@ -2,9 +2,6 @@
   <div class="card">
     <h4 class="card-header text-center">Student Registration Form</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="responseMessage">
-        {{ responseMessage }}
-      </div>
       <form
         class="mt-2"
         #studentRegisterForm="ngForm"
@@ -30,7 +27,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="state.valid || state.untouched"
+              [class.d-none]="state.valid || state.untouched"
               >Please choose a state</small
             >
           </div>
@@ -51,7 +48,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="district.valid || district.untouched"
+              [class.d-none]="district.valid || district.untouched"
               >Please choose your district</small
             >
           </div>
@@ -72,7 +69,7 @@
             </select>
             <small
               class="invalid-feedback"
-              *ngIf="gender.valid || gender.untouched"
+              [class.d-none]="gender.valid || gender.untouched"
               >Please choose your gender</small
             >
           </div>

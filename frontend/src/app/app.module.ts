@@ -52,6 +52,9 @@ import { MinistrySchemeListComponent } from './ministry/ministry-scheme-list/min
 import { FooterComponent } from './shared/footer/footer.component';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { HttpErrorInterceptorService } from './services/httperor-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -103,8 +106,19 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true,
+    },
     AuthenticationService,
     StudentAuthGuard,
     InstituteAuthGuard,

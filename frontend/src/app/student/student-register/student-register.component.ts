@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { StudentRegister } from 'src/app/models/StudentRegister';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { STATES } from '../../../assets/data/STATES';
@@ -14,7 +14,8 @@ import { STATES } from '../../../assets/data/STATES';
 export class StudentRegisterComponent implements OnInit {
   constructor(
     private _authenticationService: AuthenticationService,
-    private _router: Router
+    private _router: Router,
+    private toastr: ToastrService
   ) {}
 
   studentModel = new StudentRegister();
@@ -23,7 +24,6 @@ export class StudentRegisterComponent implements OnInit {
   districts: any[] = [];
   selectErrorPresent = true;
   genders: string[] = ['Male', 'Female', 'Other'];
-  responseMessage: string = '';
 
   ngOnInit(): void {}
 
@@ -32,14 +32,13 @@ export class StudentRegisterComponent implements OnInit {
       this.studentModel.DateOfBirth
     );
 
-    this._authenticationService.registerStudent(this.studentModel).subscribe(
-      (response) => {
+    this._authenticationService
+      .registerStudent(this.studentModel)
+      .subscribe((response) => {
         console.log('Response:::', response);
-        this.responseMessage = 'Success';
+        this.toastr.success('Registration Successfull');
         this._router.navigate(['/studentSuccess']);
-      },
-      (error) => (this.responseMessage = error.statusText)
-    );
+      });
 
     console.log(JSON.stringify(this.studentModel));
 

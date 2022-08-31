@@ -9,17 +9,15 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StudentProfileComponent implements OnInit {
   student!: IStudentDetails;
-  responseMessage: string = '';
 
   constructor(private _studentService: StudentService) {}
 
   ngOnInit(): void {
-    this._studentService.getStudentDetails().subscribe(
-      (response: IStudentDetails) => {
+    this._studentService
+      .getStudentDetails()
+      .subscribe((response: IStudentDetails) => {
         this.student = response;
         console.log(response);
-      },
-      (error) => (this.responseMessage = error.statusText)
-    );
+      });
   }
 }
