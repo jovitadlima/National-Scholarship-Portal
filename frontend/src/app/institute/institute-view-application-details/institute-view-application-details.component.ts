@@ -17,23 +17,17 @@ export class InstituteViewApplicationDetailsComponent implements OnInit {
   ) {}
 
   application!: IApprovedStudentApplication;
-  status: boolean = false;
-  errorMessage: string = '';
   approved: boolean = false;
 
   ngOnInit(): void {
     let id = Number(this._route.snapshot.paramMap.get('id'));
-    this._instituteService.getPendingApplicationsById(id).subscribe(
-      (response) => {
-        this.errorMessage = '';
+    this._instituteService
+      .getPendingApplicationsById(id)
+      .subscribe((response) => {
         this.application = response;
         this.approved = response.approvedByInstitute;
         console.log(response);
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
+      });
   }
 
   approveApplication() {

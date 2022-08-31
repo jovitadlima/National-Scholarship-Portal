@@ -467,6 +467,17 @@
             <input class="form-control" type="file" id="formFile" />
           </div>
         </div>
+        <div
+          class="d-grid gap-2 d-md-flex justify-content-md-center"
+          *ngIf="!approved"
+        >
+          <button class="btn btn-success px-4" (click)="approveApplication()">
+            Approve
+          </button>
+          <button class="btn btn-danger px-4" (click)="rejectApplication()">
+            Reject
+          </button>
+        </div>
       </div>
     </div>
   </div>

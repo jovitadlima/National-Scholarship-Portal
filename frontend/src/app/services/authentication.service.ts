@@ -67,7 +67,7 @@ export class AuthenticationService {
     let claims = JSON.parse(atob(token!.split('.')[1]));
     let name =
       claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-    console.log('Role is ', name);
+    console.log('Name is ', name);
     return name;
   }
 

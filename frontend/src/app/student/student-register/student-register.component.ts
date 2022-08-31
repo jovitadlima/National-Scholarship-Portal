@@ -27,7 +27,7 @@ export class StudentRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(studentRegisterForm: NgForm) {
+  onSubmit() {
     this.studentModel.DateOfBirth = this.toStringDate(
       this.studentModel.DateOfBirth
     );
@@ -37,12 +37,10 @@ export class StudentRegisterComponent implements OnInit {
       .subscribe((response) => {
         console.log('Response:::', response);
         this.toastr.success('Registration Successfull');
-        this._router.navigate(['/studentSuccess']);
+        this._router.navigate(['/studentRegisterSuccess']);
       });
 
     console.log(JSON.stringify(this.studentModel));
-
-    studentRegisterForm.form.reset();
   }
 
   changeDistrict(selectedState: any) {

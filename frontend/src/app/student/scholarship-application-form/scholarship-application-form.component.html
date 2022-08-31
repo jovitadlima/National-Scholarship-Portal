@@ -127,8 +127,8 @@
 
         <h5 class="underline mb-3 mt-4"><u>ACADEMIC DETAILS: </u></h5>
         <div class="row mb-3">
-          <div class="col-md-4">
-            <label class="form-label" for="domicile">Institute Name</label>
+          <div class="col-md-5">
+            <label class="form-label">Institute Name</label>
             <select
               class="form-select"
               required
@@ -153,7 +153,7 @@
               >Institute Name is required</small
             >
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <label class="form-label">Institute Code</label>
             <input
               type="text"
@@ -689,7 +689,7 @@
           </div>
         </div>
 
-        <h5 class="underline mb-3 mt-4" name="cd" ngModel>
+        <h5 class="underline mb-3 mt-4">
           <u>CONTACT DETAILS: </u>
         </h5>
         <div class="row mb-3">
@@ -815,16 +815,14 @@
 
         <div class="row mb-3">
           <div class="col-md-6">
-            <label for="mname" class="form-label"
-              >Choose Scheme Applying For</label
-            >
+            <label class="form-label">Choose Scheme Applying For</label>
             <select
               class="form-select"
-              required
               #schemeId="ngModel"
               [class.is-invalid]="schemeId.invalid && schemeId.touched"
               name="SchemeId"
               [(ngModel)]="scholarshipModel.SchemeId"
+              required
             >
               <option value="">Choose Scheme</option>
               <option *ngFor="let scheme of schemes" [value]="scheme.schemeId">

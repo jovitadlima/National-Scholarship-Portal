@@ -2,18 +2,15 @@
   <div class="card">
     <h4 class="card-header text-center">Scholarship Application</h4>
     <div class="card-body px-4">
-      <div class="alert alert-danger" *ngIf="errorMessage">
-        {{ errorMessage }}
-      </div>
       <div class="text-center">
-        <button
+        <div
           type="submit"
-          class="btn btn-success btn-lg"
-          [class.btn-danger]="!status"
+          class="alert alert-success"
+          [class.alert-danger]="!status"
           disabled
         >
-          {{ status ? "Approved" : "Pending Approval" }}
-        </button>
+          <h5>{{ status ? "Approved" : "Pending Approval" }}</h5>
+        </div>
       </div>
       <div>
         <h5 class="underline mb-3 mt-2"><u>BASIC DETAILS: </u></h5>

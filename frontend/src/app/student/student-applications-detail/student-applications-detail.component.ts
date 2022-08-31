@@ -16,20 +16,15 @@ export class StudentApplicationsDetailComponent implements OnInit {
 
   application!: IStudentApplication;
   status: boolean = false;
-  errorMessage: string = '';
 
   ngOnInit(): void {
     let id = Number(this._route.snapshot.paramMap.get('id'));
-    this._studentService.getPendingApplicationsById(id).subscribe(
-      (response) => {
-        this.errorMessage = '';
+    this._studentService
+      .getPendingApplicationsById(id)
+      .subscribe((response) => {
         this.application = response.application;
         this.status = response.status;
         console.log(response);
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
+      });
   }
 }

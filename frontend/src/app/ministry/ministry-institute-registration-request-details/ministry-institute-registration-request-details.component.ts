@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IInstitute } from 'src/app/models/IInstitute';
 import { MinistryService } from 'src/app/services/ministry.service';
@@ -20,6 +20,7 @@ export class MinistryInstituteRegistrationRequestDetailsComponent
   constructor(
     private _ministryService: MinistryService,
     private _route: ActivatedRoute,
+    private _router: Router,
     private toastr: ToastrService
   ) {}
 
@@ -52,6 +53,6 @@ export class MinistryInstituteRegistrationRequestDetailsComponent
   }
 
   back() {
-    console.log('back');
+    this._router.navigate(['/ministryInstituteList']);
   }
 }
