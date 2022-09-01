@@ -122,13 +122,19 @@
               [class.is-invalid]="mobile.invalid && mobile.touched"
               class="form-control"
               [(ngModel)]="studentModel.PhoneNo"
+              pattern="^\d{10}"
             />
-
             <small
               class="invalid-feedback"
               *ngIf="mobile.errors && (mobile.invalid || mobile.touched)"
-              >Phone number is required</small
             >
+              Mobile Number is required
+            </small>
+            <div *ngIf="mobile.errors && (mobile.invalid || mobile.touched)">
+              <small class="text-danger" *ngIf="mobile.errors?.['pattern']"
+                >Mobile number must be 10 digits</small
+              >
+            </div>
           </div>
         </div>
         <div class="row mb-3">
@@ -194,12 +200,19 @@
               [(ngModel)]="studentModel.AadharNumber"
               [class.is-invalid]="aadhar.invalid && aadhar.touched"
               required
+              pattern="^\d{12}"
             />
             <small
               class="invalid-feedback"
               *ngIf="aadhar.errors && (aadhar.invalid || aadhar.touched)"
-              >Aadhar Number is required</small
             >
+              Aadhar Number is required
+            </small>
+            <div *ngIf="aadhar.errors && (aadhar.invalid || aadhar.touched)">
+              <small class="text-danger" *ngIf="aadhar.errors?.['pattern']"
+                >Aadhar number must be 10 digits</small
+              >
+            </div>
           </div>
         </div>
         <div class="row mb-3">

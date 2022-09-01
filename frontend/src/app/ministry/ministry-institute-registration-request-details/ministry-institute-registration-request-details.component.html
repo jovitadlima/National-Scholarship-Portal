@@ -123,13 +123,19 @@
             />
           </div>
         </div>
+
         <h5 class="underline mb-3 mt-4">Proof of Existence of Institute:</h5>
         <div class="row mb-3">
           <div class="col-md-8">
             <label for="formFile" class="form-label"
               >Institute Establishment/Registration Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              type="text"
+              value="{{ institute.registrationCertificate }}"
+              class="form-control"
+              readonly
+            />
           </div>
         </div>
         <h5 class="underline mb-3 mt-4">Affiliated To:</h5>
@@ -138,7 +144,12 @@
             <label for="formFile" class="form-label"
               >University/Board Affiliation Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              type="text"
+              value="{{ institute.universityAffliationCertificate }}"
+              class="form-control"
+              readonly
+            />
           </div>
         </div>
 

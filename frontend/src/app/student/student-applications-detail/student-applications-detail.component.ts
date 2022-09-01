@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IApprovedStudentApplication } from 'src/app/models/IApprovedStudentApplication';
 import { IStudentApplication } from 'src/app/models/IStudentApplication';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -14,7 +15,7 @@ export class StudentApplicationsDetailComponent implements OnInit {
     private _route: ActivatedRoute
   ) {}
 
-  application!: IStudentApplication;
+  application!: IApprovedStudentApplication;
   status: boolean = false;
   rejected: boolean = false;
 

@@ -18,9 +18,11 @@ export class InstituteRegister {
     public AddressCity: string = '',
     public AddressState: string = '',
     public AddressDistrict: string = '',
-    public AddressPincode: string = '',
+    public AddressPincode: number | null = null,
     public PrincipalName: string = '',
     public MobileNumber: string = '',
-    public Telephone: string = ''
+    public Telephone: string = '',
+    public RegistrationCertificate: string = '',
+    public UniversityAffliationCertificate: string = ''
   ) {}
 }

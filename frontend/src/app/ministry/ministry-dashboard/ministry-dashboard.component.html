@@ -1,54 +1,35 @@
 <div class="container py-5">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card">
-        <h5 class="card-header text-center">Featured</h5>
-        <ul class="list-group list-group-flush text-center">
-          <li class="list-group-item">
-            <a class="nav-link" routerLink="/ministryDashboard">Dashboard</a>
-          </li>
-          <li class="list-group-item">
-            <a class="nav-link" routerLink="/ministrySchemeList"
-              >Manage Schemes</a
-            >
-          </li>
-          <li class="list-group-item">
-            <a class="nav-link" routerLink="/ministryApplicationList"
-              >View Applications</a
-            >
-          </li>
-          <li class="list-group-item">
-            <a class="nav-link" routerLink="/ministryInstituteList"
-              >View Institutes</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-9">
-      <div class="list-group">
-        <div class="list-group-item">
-          <h4>About Ministry</h4>
-          <p>About the ministry and the history</p>
-        </div>
-        <div class="list-group-item">
-          <h4>Scholarship Detials</h4>
-          <div class="list-group">
-            <div class="list-group-item">
-              <h5>Scholarship 1</h5>
-              <p>Simple description of the scholarship</p>
-            </div>
-            <div class="list-group-item">
-              <h5>Scholarship 1</h5>
-              <p>Simple description of the scholarship</p>
-            </div>
-            <div class="list-group-item">
-              <h5>Scholarship 1</h5>
-              <p>Simple description of the scholarship</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="rectangle">
+    <h1 class="text-center mb-5">Welcome to The Ministry Dashboard</h1>
+  </div>
+  <div class="text-center mb-5">
+    <img
+      src="../../../assets/images/pic.jpg"
+      width="300"
+      height="250"
+      class="center"
+    />
+  </div>
+  <div class="mt-5 d-grid gap-4 d-md-flex justify-content-md-center">
+    <button
+      [routerLink]="['/ministryApplicationList']"
+      class="btn btn-lg btn-dark px-5"
+    >
+      Student Application Forms
+    </button>
+    <button
+      [routerLink]="['/ministryInstituteList']"
+      class="btn btn-lg btn-dark px-5"
+    >
+      Institute Registration Requests
+    </button>
+  </div>
+  <div class="text-center mt-4">
+    <button
+      class="btn btn-lg btn-dark px-5"
+      [routerLink]="['/ministrySchemeList']"
+    >
+      Manage Scholarship Schemes
+    </button>
   </div>
 </div>

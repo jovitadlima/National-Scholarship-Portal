@@ -43,4 +43,14 @@ export interface IApprovedStudentApplication {
   approvedByOfficer: boolean;
   approvedByMinistry: boolean;
   isRejected: boolean;
+  domicileCertificate: string;
+  photo: string;
+  instituteIdCard: string;
+  casteOrIncomeCertificate: string;
+  previousYearMarksheet: string;
+  feeReceiptOfCurrentYear: string;
+  bankPassBook: string;
+  aadharCard: string;
+  markSheet10: string;
+  markSheet12: string;
 }

@@ -97,18 +97,34 @@
               class="form-control"
               required
               [(ngModel)]="scholarshipModel.AadharNumber"
+              pattern="^\d{12}"
             />
 
             <small
               class="invalid-feedback"
-              [class.d-none]="aadharNumber.valid || aadharNumber.untouched"
+              [class.d-none]="
+                aadharNumber.errors &&
+                (aadharNumber.valid || aadharNumber.untouched)
+              "
               >AadharNumber is required</small
             >
+            <div
+              *ngIf="
+                aadharNumber.errors &&
+                (aadharNumber.invalid || aadharNumber.touched)
+              "
+            >
+              <small
+                class="text-danger"
+                *ngIf="aadharNumber.errors?.['pattern']"
+                >AadharNumber must be 12 digits</small
+              >
+            </div>
           </div>
           <div class="col-md-4">
             <label for="mname" class="form-label">Family Annual Income</label>
             <input
-              type="text"
+              type="number"
               required
               #annualIncome="ngModel"
               [class.is-invalid]="annualIncome.invalid && annualIncome.touched"
@@ -196,7 +212,7 @@
           <div class="col-md-2">
             <label class="form-label">Present Course Year</label>
             <input
-              type="text"
+              type="number"
               #presentCourseYear="ngModel"
               [class.is-invalid]="
                 presentCourseYear.invalid && presentCourseYear.touched
@@ -313,7 +329,7 @@
           <div class="col-md-4">
             <label for="mname" class="form-label">Previous Passing Year</label>
             <input
-              type="text"
+              type="number"
               #previousPassingYear="ngModel"
               [class.is-invalid]="
                 previousPassingYear.invalid && previousPassingYear.touched
@@ -336,7 +352,7 @@
               >Previous Class Percentage
             </label>
             <input
-              type="text"
+              type="number"
               required
               #previousClassPercentage="ngModel"
               [class.is-invalid]="
@@ -399,9 +415,9 @@
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
-            <label for="mname" class="form-label">Passing Year</label>
+            <label class="form-label">Passing Year</label>
             <input
-              type="text"
+              type="number"
               #passingYear10="ngModel"
               [class.is-invalid]="
                 passingYear10.invalid && passingYear10.touched
@@ -420,7 +436,7 @@
           <div class="col-md-6">
             <label for="mname" class="form-label">Percentage Obtained</label>
             <input
-              type="text"
+              type="number"
               required
               #percentage10="ngModel"
               [class.is-invalid]="percentage10.invalid && percentage10.touched"
@@ -479,7 +495,7 @@
           <div class="col-md-6">
             <label for="mname" class="form-label">Passing Year</label>
             <input
-              type="text"
+              type="number"
               #passingYear12="ngModel"
               [class.is-invalid]="
                 passingYear12.invalid && passingYear12.touched
@@ -498,7 +514,7 @@
           <div class="col-md-6">
             <label for="mname" class="form-label">Percentage obtained</label>
             <input
-              type="text"
+              type="number"
               required
               #percentage12="ngModel"
               [class.is-invalid]="percentage12.invalid && percentage12.touched"
@@ -520,7 +536,7 @@
           <div class="col-md-4">
             <label class="form-label">Addmission Fee</label>
             <input
-              type="text"
+              type="number"
               required
               #addmissionFee="ngModel"
               [class.is-invalid]="
@@ -540,7 +556,7 @@
           <div class="col-md-4">
             <label class="form-label">Tution Fee</label>
             <input
-              type="text"
+              type="number"
               required
               #tutionFee="ngModel"
               [class.is-invalid]="tutionFee.invalid && tutionFee.touched"
@@ -558,7 +574,7 @@
           <div class="col-md-4">
             <label for="mname" class="form-label">Other Fee</label>
             <input
-              type="text"
+              type="number"
               required
               #otherFee="ngModel"
               [class.is-invalid]="otherFee.invalid && otherFee.touched"
@@ -622,7 +638,7 @@
           <div class="col-md-4">
             <label for="mname" class="form-label">Disability Percentage </label>
             <input
-              type="text"
+              type="number"
               required
               #percentageDisability="ngModel"
               [class.is-invalid]="
@@ -794,9 +810,9 @@
             >
           </div>
           <div class="col-md-4">
-            <label for="mname" class="form-label">Pincode</label>
+            <label for="number" class="form-label">Pincode</label>
             <input
-              type="text"
+              type="number"
               required
               #pincode="ngModel"
               [class.is-invalid]="pincode.invalid && pincode.touched"
@@ -804,6 +820,7 @@
               class="form-control"
               required
               [(ngModel)]="scholarshipModel.Pincode"
+              pattern="^\d{6}"
             />
             <small
               class="invalid-feedback"
@@ -843,23 +860,47 @@
             <label for="formFile" class="form-label"
               >Domicile Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" required />
+            <input
+              class="form-control"
+              type="file"
+              #domicileCertificate
+              name="DomicileCertificate"
+              (change)="setDomicileCertificate($event)"
+            />
           </div>
           <div class="col-md-6">
             <label for="formFile" class="form-label">Student Photograph</label>
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #photo
+              name="Photo"
+              (change)="setPhoto($event)"
+            />
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="formFile" class="form-label">Institute ID Card</label>
-            <input class="form-control" type="file" id="formFile" required />
+            <input
+              class="form-control"
+              type="file"
+              #instituteIdCard
+              name="InstituteIdCard"
+              (change)="setInstituteIdCard($event)"
+            />
           </div>
           <div class="col-md-6">
             <label for="formFile" class="form-label"
               >Caste/Income Certificate</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #casteOrIncomeCertificate
+              name="CasteOrIncomeCertificate"
+              (change)="setCasteOrIncomeCertificate($event)"
+            />
           </div>
         </div>
         <div class="row mb-3">
@@ -867,13 +908,25 @@
             <label for="formFile" class="form-label"
               >Previous Year Marksheet</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #previousYearMarksheet
+              name="PreviousYearMarksheet"
+              (change)="setPreviousYearMarksheet($event)"
+            />
           </div>
           <div class="col-md-6">
             <label for="formFile" class="form-label"
               >Fee Receipt of Current Year</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #feeReceiptOfCurrentYear
+              name="FeeReceiptOfCurrentYear"
+              (change)="setFeeReceiptOfCurrentYear($event)"
+            />
           </div>
         </div>
         <div class="row mb-3">
@@ -881,11 +934,23 @@
             <label for="formFile" class="form-label"
               >Bank Passbook (Front Page)</label
             >
-            <input class="form-control" type="file" id="formFile" required />
+            <input
+              class="form-control"
+              type="file"
+              #bankPassBook
+              name="BankPassBook"
+              (change)="setBankPassBook($event)"
+            />
           </div>
           <div class="col-md-6">
             <label for="formFile" class="form-label">Aadhar Card</label>
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #aadharCardurl
+              name="AadharCardurl"
+              (change)="setAadharCard($event)"
+            />
           </div>
         </div>
         <div class="row mb-3">
@@ -893,18 +958,30 @@
             <label for="formFile" class="form-label"
               >10th Class Marksheet</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #markSheet10url
+              name="MarkSheet10url"
+              (change)="setMarkSheet10($event)"
+            />
           </div>
           <div class="col-md-6">
             <label for="formFile" class="form-label"
               >12th Class Marksheet</label
             >
-            <input class="form-control" type="file" id="formFile" />
+            <input
+              class="form-control"
+              type="file"
+              #markSheet12
+              name="MarkSheet12url"
+              (change)="setMarkSheet12($event)"
+            />
           </div>
         </div>
 
         <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" />
+          <input class="form-check-input" required type="checkbox" />
           <label class="form-check-label">
             ALL THE DETAILS FURNISHED BY ME ARE TRUE TO BEST OF MY KNOWLEDGE. IF
             ANY MISTAKES ARE FOUND THEN I MAY BE DISQUALIFIED FOR SCHOLARSHIP

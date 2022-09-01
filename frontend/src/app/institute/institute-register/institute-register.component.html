@@ -351,7 +351,13 @@
             <label for="formFile" class="form-label"
               >Institute Establishment/Registration Certificate</label
             >
-            <input class="form-control" type="file" />
+            <input
+              class="form-control"
+              type="file"
+              #registerRef
+              name="registrationCertificate"
+              (change)="setRegistrationCertificate($event)"
+            />
           </div>
         </div>
         <h5 class="underline mb-3 mt-4">Affiliated To:</h5>
@@ -360,7 +366,13 @@
             <label for="formFile" class="form-label"
               >University/Board Affiliation Certificate</label
             >
-            <input class="form-control" type="file" />
+            <input
+              class="form-control"
+              type="file"
+              #unicertRef
+              name="universityAffliationCertificate"
+              (change)="setUniversityAffliationCertificate($event)"
+            />
           </div>
         </div>
 
@@ -492,7 +504,7 @@
           <div class="col-md-2">
             <label for="Pincode" class="form-label">Pincode</label>
             <input
-              type="text"
+              type="number"
               name="AddressPincode"
               class="form-control"
               id="Pincode"
@@ -502,6 +514,7 @@
               "
               [(ngModel)]="instituteModel.AddressPincode"
               required
+              pattern="^\d{6}"
             />
             <small
               class="invalid-feedback"
@@ -551,6 +564,7 @@
               [class.is-invalid]="mobile.invalid && mobile.touched"
               [(ngModel)]="instituteModel.MobileNumber"
               required
+              pattern="^\d{10}"
             />
             <small
               class="invalid-feedback"
@@ -558,6 +572,11 @@
             >
               Mobile number is required
             </small>
+            <div *ngIf="mobile.errors && (mobile.invalid || mobile.touched)">
+              <small class="text-danger" *ngIf="mobile.errors?.['pattern']"
+                >Mobile number must be 10 digits</small
+              >
+            </div>
           </div>
           <div class="col-md-4">
             <label for="telephone" class="form-label">Telephone </label>
@@ -582,11 +601,8 @@
           </div>
         </div>
         <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" />
-          <label
-            class="form-check-label text-muted text-sm"
-            for="flexCheckDefault"
-          >
+          <input class="form-check-input" type="checkbox" required />
+          <label class="form-check-label text-muted text-sm">
             All the details and documents submitted by us are valid and true if
             found guilty of submitting invalid documents we may be held
             responsible for that act by us.

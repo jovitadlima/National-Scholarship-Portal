@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IInstitute } from 'src/app/models/IInstitute';
@@ -27,7 +28,7 @@ export class ScholarshipApplicationFormComponent implements OnInit {
 
   states: any = STATES;
   districts: any[] = [];
-  religions: string[] = ['1', '2', '3', '4', '5'];
+  religions: string[] = ['Hindu', 'Muslim', 'Christian', 'Other'];
   schemes: IScheme[] = [];
   institutes: IInstitute[] = [];
 
@@ -73,5 +74,85 @@ export class ScholarshipApplicationFormComponent implements OnInit {
 
   toStringDate(date: any) {
     return `${date.day}/${date.month}/${date.year}`;
+  }
+
+  setDomicileCertificate(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.DomicileCertificate = target.files[0].name;
+      console.log(this.scholarshipModel.DomicileCertificate);
+    }
+  }
+
+  setPhoto(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.Photo = target.files[0].name;
+      console.log(this.scholarshipModel.Photo);
+    }
+  }
+
+  setInstituteIdCard(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.InstituteIdCard = target.files[0].name;
+      console.log(this.scholarshipModel.InstituteIdCard);
+    }
+  }
+
+  setCasteOrIncomeCertificate(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.CasteOrIncomeCertificate = target.files[0].name;
+      console.log(this.scholarshipModel.CasteOrIncomeCertificate);
+    }
+  }
+
+  setPreviousYearMarksheet(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.PreviousYearMarksheet = target.files[0].name;
+      console.log(this.scholarshipModel.PreviousYearMarksheet);
+    }
+  }
+
+  setFeeReceiptOfCurrentYear(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.FeeReceiptOfCurrentYear = target.files[0].name;
+      console.log(this.scholarshipModel.FeeReceiptOfCurrentYear);
+    }
+  }
+
+  setBankPassBook(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.BankPassBook = target.files[0].name;
+      console.log(this.scholarshipModel.BankPassBook);
+    }
+  }
+
+  setAadharCard(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.AadharCard = target.files[0].name;
+      console.log(this.scholarshipModel.AadharCard);
+    }
+  }
+
+  setMarkSheet10(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.MarkSheet10 = target.files[0].name;
+      console.log(this.scholarshipModel.MarkSheet10);
+    }
+  }
+
+  setMarkSheet12(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.scholarshipModel.MarkSheet12 = target.files[0].name;
+      console.log(this.scholarshipModel.MarkSheet12);
+    }
   }
 }

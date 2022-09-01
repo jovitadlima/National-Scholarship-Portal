@@ -4,6 +4,7 @@ import { InstituteRegister } from 'src/app/models/InstituteRegister';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-institute-register',
@@ -44,5 +45,22 @@ export class InstituteRegisterComponent implements OnInit {
     this.districts = this.states.find(
       (st: any) => st.state == selectedState
     ).districts;
+  }
+
+  setRegistrationCertificate(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.instituteModel.RegistrationCertificate = target.files[0].name;
+      console.log(this.instituteModel.RegistrationCertificate);
+    }
+  }
+
+  setUniversityAffliationCertificate(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.instituteModel.UniversityAffliationCertificate =
+        target.files[0].name;
+      console.log(this.instituteModel.UniversityAffliationCertificate);
+    }
   }
 }
