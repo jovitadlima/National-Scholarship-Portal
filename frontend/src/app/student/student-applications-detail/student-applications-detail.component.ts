@@ -16,6 +16,7 @@ export class StudentApplicationsDetailComponent implements OnInit {
 
   application!: IStudentApplication;
   status: boolean = false;
+  rejected: boolean = false;
 
   ngOnInit(): void {
     let id = Number(this._route.snapshot.paramMap.get('id'));
@@ -24,6 +25,7 @@ export class StudentApplicationsDetailComponent implements OnInit {
       .subscribe((response) => {
         this.application = response.application;
         this.status = response.status;
+        this.rejected = response.application.isRejected;
         console.log(response);
       });
   }

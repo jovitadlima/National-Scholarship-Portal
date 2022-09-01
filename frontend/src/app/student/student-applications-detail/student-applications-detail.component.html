@@ -8,8 +8,12 @@
           class="alert alert-success"
           [class.alert-danger]="!status"
           disabled
+          *ngIf="!rejected"
         >
           <h5>{{ status ? "Approved" : "Pending Approval" }}</h5>
+        </div>
+        <div type="submit" class="alert alert-danger" disabled *ngIf="rejected">
+          <h5>Application Rejected</h5>
         </div>
       </div>
       <div>
