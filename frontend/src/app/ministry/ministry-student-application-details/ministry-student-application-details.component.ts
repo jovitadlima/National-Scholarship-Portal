@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IApprovedStudentApplication } from 'src/app/models/IApprovedStudentApplication';
 import { MinistryService } from 'src/app/services/ministry.service';
@@ -15,7 +15,8 @@ export class MinistryStudentApplicationDetailsComponent implements OnInit {
   constructor(
     private _ministryService: MinistryService,
     private _route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -44,5 +45,7 @@ export class MinistryStudentApplicationDetailsComponent implements OnInit {
     });
   }
 
-  back() {}
+  back() {
+    this._router.navigate(['/ministryApplicationList']);
+  }
 }

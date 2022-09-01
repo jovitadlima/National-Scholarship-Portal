@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IInstitute } from 'src/app/models/IInstitute';
 import { OfficerService } from 'src/app/services/officer.service';
@@ -18,7 +18,8 @@ export class OfficerInstituteRegistrationRequestDetailsComponent
   constructor(
     private _officerService: OfficerService,
     private _route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +51,6 @@ export class OfficerInstituteRegistrationRequestDetailsComponent
   }
 
   back() {
-    console.log('back');
+    this._router.navigate(['/officerInstitutesList']);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IApprovedStudentApplication } from 'src/app/models/IApprovedStudentApplication';
 import { InstituteService } from 'src/app/services/institute.service';
@@ -13,7 +13,8 @@ export class InstituteViewApplicationDetailsComponent implements OnInit {
   constructor(
     private _instituteService: InstituteService,
     private _route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _router: Router
   ) {}
 
   application!: IApprovedStudentApplication;
@@ -48,5 +49,9 @@ export class InstituteViewApplicationDetailsComponent implements OnInit {
         console.log('rejection response ::: ', response);
         this.toastr.success('Application rejected');
       });
+  }
+
+  back() {
+    this._router.navigate(['/instituteStudentApplications']);
   }
 }

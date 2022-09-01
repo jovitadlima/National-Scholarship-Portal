@@ -11,17 +11,13 @@ export class InstituteApprovedApplicationsListComponent implements OnInit {
   constructor(private _instituteService: InstituteService) {}
 
   applications: IApprovedStudentApplication[] = [];
-  errorMessage = '';
 
   ngOnInit(): void {
-    this._instituteService.getApprovedApplications().subscribe(
-      (response: IApprovedStudentApplication[]) => {
+    this._instituteService
+      .getApprovedApplications()
+      .subscribe((response: IApprovedStudentApplication[]) => {
         this.applications = response;
         console.log(this.applications);
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
+      });
   }
 }

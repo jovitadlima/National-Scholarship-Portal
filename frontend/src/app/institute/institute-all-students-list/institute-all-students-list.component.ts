@@ -12,17 +12,13 @@ export class InstituteAllStudentsListComponent implements OnInit {
   constructor(private _instituteService: InstituteService) {}
 
   students: IStudent[] = [];
-  errorMessage = '';
 
   ngOnInit(): void {
-    this._instituteService.getAllStudentsByInstitute().subscribe(
-      (response: IStudent[]) => {
+    this._instituteService
+      .getAllStudentsByInstitute()
+      .subscribe((response: IStudent[]) => {
         this.students = response;
         console.log(response);
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      }
-    );
+      });
   }
 }
